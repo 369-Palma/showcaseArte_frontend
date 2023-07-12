@@ -6,7 +6,7 @@ import {
 } from "../actions";
 
 const initialState = {
-  dataProducts: [],
+  products: [],
   isLoading: false,
   hasError: false,
   errorMessage: "",
@@ -17,7 +17,7 @@ const productsReducer = (state = initialState, action) => {
     case GET_PRODUCTS:
       return {
         ...state,
-        dataProducts: action.payload,
+        products: action.payload,
       };
 
     case GET_PRODUCTS_ERROR:

@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./App";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./style/index.css";
+//import "./style/index.css";
 
 // abbiamo iniettato il nostro store nella nostra applicazione al livello più alto
 import { Provider } from "react-redux";

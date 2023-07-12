@@ -4,7 +4,7 @@ import storage from "redux-persist/lib/storage";
 import { encryptTransform } from "redux-persist-transform-encrypt";
 
 // import mainReducer from "../reducers";
-import cartReducer from "../reducers/cartReducer";
+import cartReducer from "../reducers/cartReducers";
 import userReducer from "../reducers/userReducer";
 import productsReducer from "../reducers/productsReducer";
 import favouritesReducer from "../reducers/favouritesReducer";

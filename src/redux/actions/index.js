@@ -14,8 +14,8 @@ export default axios.create({
   baseURL: `http://localhost:8086/api`,
 });
 export const addToCartAction = (productSelected) => ({
-  type: ADD_TO_CART, // type è obbligatoria in ogni action
-  payload: productSelected, // payload non è obbligatorio, ma a volte sicuramente necessario
+  type: ADD_TO_CART,
+  payload: productSelected,
 });
 
 export const addToCartActionWithThunk = (productSelected) => {

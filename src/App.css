@@ -2,15 +2,29 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
+.containerLogo {
+  height: 20vmin;
+  width: 20vmin;
+  margin-right: auto;
+  margin-left: auto;
+}
+.logo {
+  height: 20vmin;
   pointer-events: none;
+  border-radius: 100px;
+}
+.h1,
+h2 {
+  margin-left: auto;
+  margin-top: auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.nav-link {
+  font-weight: 400px;
+}
+.nav-link:hover {
+  transform: scale(1);
+  font-weight: bolder;
 }
 
 .App-header {

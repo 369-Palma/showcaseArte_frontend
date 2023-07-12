@@ -1,5 +1,7 @@
+import CustomNav from "./CustomNav";
+
 const HomePage = () => {
-  return <h1>Ciao!</h1>;
+  return <></>;
 };
 
 export default HomePage;
