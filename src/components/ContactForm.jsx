@@ -28,7 +28,7 @@ const ContactForm = () => {
 
   return (
     <>
-      <Col className="titolo w-50 mx-auto mt-3">
+      <Col xs={8} className="titolo mx-auto mt-3">
         <h2 className="text-center p-3 margineH2 mx-auto w-100">
           {" "}
           Contact me{" "}
@@ -37,7 +37,7 @@ const ContactForm = () => {
 
       <Form
         onSubmit={inviaEmail}
-        className="formBox p-5 mx-auto border rounded-2"
+        className="formBox p-5 mx-auto border rounded-2 col-sx-8 col-md-6"
       >
         <Form.Group className="mb-3" controlId="formUsername">
           <Form.Label>Name:</Form.Label>
