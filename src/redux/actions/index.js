@@ -10,9 +10,12 @@ export const GET_PRODUCTS_ERROR = "GET_PRODUCTS_ERROR";
 export const GET_PRODUCTS_LOADING_ON = "GET_PRODUCTS_LOADING_ON";
 export const GET_PRODUCTS_LOADING_OFF = "GET_PRODUCTS_LOADING_OFF";
 
+const urlBase = process.env.baseURL;
+
 export default axios.create({
-  baseURL: `http://localhost:8086/api`,
+  urlBase,
 });
+
 export const addToCartAction = (productSelected) => ({
   type: ADD_TO_CART,
   payload: productSelected,
@@ -47,8 +50,8 @@ export const removeFromCartAction = (i) => ({
 });
 
 export const addToFavAction = (productSelected) => ({
-  type: ADD_TO_FAV, // type è obbligatoria in ogni action
-  payload: productSelected, // payload non è obbligatorio, ma a volte sicuramente necessario
+  type: ADD_TO_FAV,
+  payload: productSelected,
 });
 
 export const addToFavActionWithThunk = (productSelected) => {
@@ -67,8 +70,8 @@ export const addToFavActionWithThunk = (productSelected) => {
       ) === -1
     ) {
       dispatch({
-        type: ADD_TO_CART, // type è obbligatoria in ogni action
-        payload: productSelected, // payload non è obbligatorio, ma a volte sicuramente necessario
+        type: ADD_TO_CART,
+        payload: productSelected,
       });
     }
   };
@@ -84,6 +87,9 @@ export const setUserNameAction = (username) => ({
   payload: username,
 });
 
+// FETCH
+
+//GET all products con fetch e url completo
 export const getProductsAction = () => {
   return async (dispatch, getState) => {
     try {
@@ -91,7 +97,43 @@ export const getProductsAction = () => {
         type: GET_PRODUCTS_LOADING_ON,
       });
 
-      let resp = await fetch("https://localhost:8086/api/products");
+      let resp = await fetch("http://localhost:8086/api/products");
+      if (resp.ok) {
+        let fetchedProducts = await resp.json();
+        console.log(fetchedProducts);
+        dispatch({
+          type: GET_PRODUCTS,
+          payload: fetchedProducts,
+        });
+      } else {
+        dispatch({
+          type: GET_PRODUCTS_ERROR,
+          payload: "Resp not ok",
+        });
+      }
+    } catch (error) {
+      console.log(error);
+      dispatch({
+        type: GET_PRODUCTS_ERROR,
+        payload: error.message,
+      });
+    } finally {
+      dispatch({
+        type: GET_PRODUCTS_LOADING_OFF,
+      });
+    }
+  };
+};
+
+// GET all products url da file env
+/* export const getProductsAction = () => {
+  return async (dispatch, getState) => {
+    try {
+      dispatch({
+        type: GET_PRODUCTS_LOADING_ON,
+      });
+
+      let resp = await fetch(urlBase + "/products");
       if (resp.ok) {
         let fetchedProducts = await resp.json();
 
@@ -117,4 +159,4 @@ export const getProductsAction = () => {
       });
     }
   };
-};
+}; */
