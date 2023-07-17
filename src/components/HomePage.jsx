@@ -13,7 +13,7 @@ const HomePage = () => {
 
   return (
     <>
-      <Carosello />
+      <Carosello className="col-sx-12" />
     </>
   );
 };
