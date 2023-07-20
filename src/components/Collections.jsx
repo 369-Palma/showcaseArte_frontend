@@ -52,7 +52,7 @@ const Collections = (props) => {
                 />
               </Col>
               <Col className="d-flex justify-content-center">
-                <p className="mt-2 fs-5">{collection.collection}</p>
+                <p className="mt-4 fs-5">{collection.collection}</p>
               </Col>
             </Row>
           </Col>
