@@ -9,12 +9,20 @@ export const GET_PRODUCTS = "GET_PRODUCTS";
 export const GET_PRODUCTS_ERROR = "GET_PRODUCTS_ERROR";
 export const GET_PRODUCTS_LOADING_ON = "GET_PRODUCTS_LOADING_ON";
 export const GET_PRODUCTS_LOADING_OFF = "GET_PRODUCTS_LOADING_OFF";
+export const SET_QUERY = "SET_QUERY";
 
 const urlBase = process.env.baseURL;
-
+const baseline = "http://localhost:8086/api/products";
 export default axios.create({
   urlBase,
 });
+
+export const setQueryAction = (query) => {
+  return {
+    type: SET_QUERY,
+    payload: query,
+  };
+};
 
 export const addToCartAction = (productSelected) => ({
   type: ADD_TO_CART,
@@ -97,7 +105,7 @@ export const getProductsAction = () => {
         type: GET_PRODUCTS_LOADING_ON,
       });
 
-      let resp = await fetch("http://localhost:8086/api/products");
+      let resp = await fetch(baseline);
       if (resp.ok) {
         let fetchedProducts = await resp.json();
         console.log(fetchedProducts);
@@ -160,3 +168,38 @@ export const getProductsAction = () => {
     }
   };
 }; */
+
+export const getByCollectionAction = (query) => {
+  return async (dispatch, getState) => {
+    try {
+      dispatch({
+        type: GET_PRODUCTS_LOADING_ON,
+      });
+
+      let resp = await fetch(baseline + "/collection/" + query);
+      if (resp.ok) {
+        let fetchedProducts = await resp.json();
+        console.log(fetchedProducts);
+        dispatch({
+          type: GET_PRODUCTS,
+          payload: fetchedProducts,
+        });
+      } else {
+        dispatch({
+          type: GET_PRODUCTS_ERROR,
+          payload: "Resp not ok",
+        });
+      }
+    } catch (error) {
+      console.log(error);
+      dispatch({
+        type: GET_PRODUCTS_ERROR,
+        payload: error.message,
+      });
+    } finally {
+      dispatch({
+        type: GET_PRODUCTS_LOADING_OFF,
+      });
+    }
+  };
+};

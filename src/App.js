@@ -1,5 +1,4 @@
 import logo from "./assets/img/logo.jpg";
-import { Container, Row, Col } from "react-bootstrap";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import "./App.css";
 
@@ -10,6 +9,7 @@ import About from "./components/About";
 import ContactForm from "./components/ContactForm";
 import Footer from "./components/Footer";
 import CustomNav from "./components/CustomNav";
+import ChosenCollection from "./components/ChosenCollection";
 
 function App() {
   return (
@@ -29,6 +29,7 @@ function App() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/about" element={<About />} />
         <Route path="/contacts" element={<ContactForm />} />
+        <Route path="/collection/:query" element={<ChosenCollection />} />
       </Routes>
       <Footer />
     </BrowserRouter>

@@ -1,11 +1,23 @@
 import { Container, Row, Col } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import "../styles/homepage.css";
+import { setQueryAction } from "../redux/actions";
+
+import { useNavigate } from "react-router";
+import { useState } from "react";
 
 const Collections = (props) => {
   const products = useSelector((state) => state.products.products);
+  const dispatch = useDispatch();
+  const query = useSelector((state) => state.query);
 
-  console.log(products);
+  const navigate = useNavigate();
+
+  const handleImageClick = (collectionName) => {
+    dispatch(setQueryAction(collectionName));
+    navigate("/collection/" + collectionName);
+    console.log(query);
+  };
 
   // Funzione per trovare un oggetto in base al titolo specifico
   const findProductByTitle = (title) => {
@@ -46,9 +58,12 @@ const Collections = (props) => {
             <Row className="d-flex flex-column containerCollection">
               <Col className="d-flex flex-row justify-content-center">
                 <img
-                  src={collection.product.img}
-                  alt={collection.product.collection}
+                  src={collection?.product?.img}
+                  alt={collection.collection}
                   className="imgCollection"
+                  onClick={() => {
+                    handleImageClick(collection.collection);
+                  }}
                 />
               </Col>
               <Col className="d-flex justify-content-center">

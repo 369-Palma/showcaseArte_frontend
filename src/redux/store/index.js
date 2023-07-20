@@ -8,6 +8,7 @@ import cartReducer from "../reducers/cartReducers";
 import userReducer from "../reducers/userReducer";
 import productsReducer from "../reducers/productsReducer";
 import favouritesReducer from "../reducers/favouritesReducer";
+import queryReducer from "../reducers/queryReducer";
 
 const persistConfig = {
   key: "root",
@@ -24,6 +25,7 @@ const rootReducer = combineReducers({
   user: userReducer,
   products: productsReducer,
   fav: favouritesReducer,
+  query: queryReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
