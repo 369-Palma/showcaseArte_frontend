@@ -1,7 +1,7 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import "../styles/homepage.css";
-import { setQueryAction } from "../redux/actions";
+import { setQueryAction, scrollToTop } from "../redux/actions";
 
 import { useNavigate } from "react-router";
 import { useState } from "react";
@@ -16,7 +16,8 @@ const Collections = (props) => {
   const handleImageClick = (collectionName) => {
     dispatch(setQueryAction(collectionName));
     navigate("/collection/" + collectionName);
-    console.log(query);
+    scrollToTop();
+    //console.log(query);
   };
 
   // Funzione per trovare un oggetto in base al titolo specifico

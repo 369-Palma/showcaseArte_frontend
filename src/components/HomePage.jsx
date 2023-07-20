@@ -14,7 +14,7 @@ const HomePage = () => {
 
   return (
     <>
-      <Carosello className="col-sx-12 col-md-10" />
+      <Carosello className="col-sx-12 col-md-8" />
       <Collections />
     </>
   );

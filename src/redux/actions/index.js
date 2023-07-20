@@ -11,6 +11,10 @@ export const GET_PRODUCTS_LOADING_ON = "GET_PRODUCTS_LOADING_ON";
 export const GET_PRODUCTS_LOADING_OFF = "GET_PRODUCTS_LOADING_OFF";
 export const SET_QUERY = "SET_QUERY";
 
+export function scrollToTop() {
+  window.scrollTo(0, 0);
+}
+
 const urlBase = process.env.baseURL;
 const baseline = "http://localhost:8086/api/products";
 export default axios.create({
