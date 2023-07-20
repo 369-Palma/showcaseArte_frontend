@@ -3,20 +3,20 @@ import "../styles/homepage.css";
 
 const CollectionPicker = (props) => {
   const product = props.products;
+  console.log(product);
+
   return (
     <Container>
-      <Row className="d-flex flex-column ">
+      <Row className="d-flex flex-column containerCollection">
         <Col className="d-flex flex-row justify-content-center">
           <img
-            src={product.img}
-            alt={product.title}
+            src={product?.img}
+            alt={product?.title}
             className="imgCollection w-100"
           />
         </Col>
         <Col className="d-flex justify-content-center">
-          <p>
-            {product.collection} {""} Collection
-          </p>
+          <p>{/*  {product?.collection} {""}  */}Collection</p>
         </Col>
       </Row>
     </Container>

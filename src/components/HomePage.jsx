@@ -7,7 +7,7 @@ import { getProductsAction } from "../redux/actions";
 
 const HomePage = () => {
   const dispatch = useDispatch();
-  console.log(dispatch);
+
   useEffect(() => {
     dispatch(getProductsAction());
   }, []);

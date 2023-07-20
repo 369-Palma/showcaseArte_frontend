@@ -2,3 +2,13 @@
   height: 50vmin;
   width: 50vmin;
 }
+
+.imgCollection {
+  width: 400px;
+  aspect-ratio: 16/9;
+}
+
+.imgCollection:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
