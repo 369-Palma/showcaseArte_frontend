@@ -15,7 +15,7 @@ const Collections = (props) => {
   const collectionsArray = [
     {
       collection: "Seascapes",
-      product: findProductByTitle("Mediterranean sea"),
+      product: findProductByTitle("Vid u' mar quant j'è béll"),
     },
 
     {
@@ -38,7 +38,7 @@ const Collections = (props) => {
   /* const product = props.collectionsArray; */
 
   return (
-    <Container className="mx-auto my-auto d-flex flex-column w-100">
+    <Container className="mx-auto my-auto d-flex flex-column">
       <Row className="my-4">
         <h2 className="mb-5">Collections</h2>
         {collectionsArray.map((collection) => (

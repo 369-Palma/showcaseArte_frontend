@@ -5,11 +5,11 @@
 
 .imgCollection {
   width: 400px;
-  aspect-ratio: 16/9;
+  aspect-ratio: 9/16;
 }
 
 .imgCollection:hover {
   transform: scale(1.1);
-  box-shadow: 1px 1px 2px 1px;
+  box-shadow: 1px 2px 2px 1px rgb(160, 160, 160);
   cursor: pointer;
 }
