@@ -1,3 +1,7 @@
 .titoloQuadro {
   width: fit-content;
 }
+.imgCollection {
+  max-width: 528px;
+  max-height: 515px;
+}

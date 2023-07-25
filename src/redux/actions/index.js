@@ -10,6 +10,7 @@ export const GET_PRODUCTS_ERROR = "GET_PRODUCTS_ERROR";
 export const GET_PRODUCTS_LOADING_ON = "GET_PRODUCTS_LOADING_ON";
 export const GET_PRODUCTS_LOADING_OFF = "GET_PRODUCTS_LOADING_OFF";
 export const SET_QUERY = "SET_QUERY";
+export const SET_ID = "SET_ID";
 
 export function scrollToTop() {
   window.scrollTo(0, 0);
@@ -25,6 +26,13 @@ export const setQueryAction = (query) => {
   return {
     type: SET_QUERY,
     payload: query,
+  };
+};
+
+export const setIdAction = (id) => {
+  return {
+    type: SET_ID,
+    payload: id,
   };
 };
 

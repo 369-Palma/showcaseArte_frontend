@@ -9,6 +9,7 @@ import userReducer from "../reducers/userReducer";
 import productsReducer from "../reducers/productsReducer";
 import favouritesReducer from "../reducers/favouritesReducer";
 import queryReducer from "../reducers/queryReducer";
+import idQueryReducer from "../reducers/idQueryReducer";
 
 const persistConfig = {
   key: "root",
@@ -26,6 +27,7 @@ const rootReducer = combineReducers({
   products: productsReducer,
   fav: favouritesReducer,
   query: queryReducer,
+  idProd: idQueryReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
