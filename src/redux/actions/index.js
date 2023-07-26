@@ -89,12 +89,12 @@ export const addToFavActionWithThunk = (productSelected) => {
       )
     );
     if (
-      currentState.cart.content.findIndex(
+      currentState.fav.content.findIndex(
         (product) => product.id === productSelected.id
       ) === -1
     ) {
       dispatch({
-        type: ADD_TO_CART,
+        type: ADD_TO_FAV,
         payload: productSelected,
       });
     }
