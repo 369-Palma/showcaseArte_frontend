@@ -67,20 +67,21 @@ const Detail = (props) => {
             alt={prodObj?.title}
           />
         </Col>
-        <Row className="d-flex space-between mx-0 p-0">
-          <Col>
-            <p className="titoloQuadro">{prodObj?.title}</p>
-          </Col>
-          <Col className="d-flex justify-content-end pt-1">
-            <FaRegHeart
-              color="red"
-              /* onClick={() => {
+      </Row>
+      <Row className="d-flex space-between mx-0 p-0">
+        <Col>
+          <p className="titoloQuadro">{prodObj?.title}</p>
+        </Col>
+        <Col className="d-flex justify-content-end pt-1">
+          <FaRegHeart
+            color="red"
+            /* onClick={() => {
                 handleFavIconClick();
               }} */
-            />
-          </Col>
-        </Row>
-
+          />
+        </Col>
+      </Row>
+      <Row className="d-flex flex-column">
         <Col>
           <p>{prodObj?.price} €</p>
         </Col>
