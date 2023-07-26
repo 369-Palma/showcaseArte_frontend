@@ -1,10 +1,11 @@
-/* import { Container, Row, Col, ListGroup, Button } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router";
-import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+
+import { useSelector, useDispatch } from "react-redux";
 import { scrollToTop } from "../redux/actions";
 import "../styles/collection.css";
 import { FaRegHeart } from "react-icons/fa";
+import { setIdAction } from "../redux/actions";
 
 const SingleProduct = (props) => {
   const navigate = useNavigate();
@@ -12,20 +13,31 @@ const SingleProduct = (props) => {
   const products = useSelector((state) => state.products.products);
   const product = props.product;
   console.log(products);
+  const dispatch = useDispatch();
 
+  const handleImageClick = (idProduct) => {
+    console.log(
+      "l'idProduct in SingleProduct è di tipo:",
+      typeof idProduct,
+      "l'idProduct in SingleProduct selezionato è:",
+      idProduct
+    );
+    dispatch(setIdAction(idProduct));
+    navigate("/details/" + idProduct.toString());
+    scrollToTop();
+  };
   return (
     <>
       <Container className="my-3">
         <Row className="d-flex flex-column my-0">
           <Col className="">
-            <Link className="" to={"/detail/" + product?.id}>
-              <img
-                className="imgCollection w-100 h-100"
-                variant="top"
-                src={product?.img}
-                alt={product?.title}
-              />
-            </Link>
+            <img
+              className="imgCollection w-100 h-100"
+              variant="top"
+              src={product?.img}
+              alt={product?.title}
+              onClick={() => handleImageClick(product.id)}
+            />
           </Col>
           <Row className="d-flex space-between mx-0 pt-4 ps-0">
             <Col>
@@ -36,32 +48,13 @@ const SingleProduct = (props) => {
               <FaRegHeart className="w-25" />{" "}
             </Col>
           </Row>
-
           <Col>
             <p>{product?.price} €</p>
-          </Col> */
-{
-  /*     <Col>
-            <p>
-              {" "}
-              Size: {""} {product?.length} x {product?.width}{" "}
-            </p>
-          </Col>
-          <Col>
-            <p> {product?.description} </p>
-          </Col> */
-}
-/*  </Row>
-        <Button
-          className="bottone text-light text-primary fs-6"
-          onClick={() => navigate("/details/" + products.id)}
-        >
-          INFO
-        </Button>
+          </Col>{" "}
+        </Row>
       </Container>
     </>
   );
 };
 
 export default SingleProduct;
- */

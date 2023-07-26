@@ -17,7 +17,6 @@ const Collections = (props) => {
     dispatch(setQueryAction(collectionName));
     navigate("/collection/" + collectionName);
     scrollToTop();
-    //console.log(query);
   };
 
   // Funzione per trovare un oggetto in base al titolo specifico

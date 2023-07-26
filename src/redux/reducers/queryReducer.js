@@ -1,4 +1,5 @@
 import { SET_QUERY } from "../actions";
+
 const initialState = {
   query: "",
 };

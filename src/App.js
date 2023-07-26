@@ -10,6 +10,7 @@ import ContactForm from "./components/ContactForm";
 import Footer from "./components/Footer";
 import CustomNav from "./components/CustomNav";
 import ChosenCollection from "./components/ChosenCollection";
+import Detail from "./components/Detail";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contacts" element={<ContactForm />} />
         <Route path="/collection/:query" element={<ChosenCollection />} />
+        <Route path="/details/:id" element={<Detail />} />
       </Routes>
       <Footer />
     </BrowserRouter>

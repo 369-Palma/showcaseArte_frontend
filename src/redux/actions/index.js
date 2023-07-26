@@ -11,6 +11,10 @@ export const GET_PRODUCTS_LOADING_ON = "GET_PRODUCTS_LOADING_ON";
 export const GET_PRODUCTS_LOADING_OFF = "GET_PRODUCTS_LOADING_OFF";
 export const SET_QUERY = "SET_QUERY";
 export const SET_ID = "SET_ID";
+export const GET_PRODUCT = "GET_PRODUCT";
+export const GET_PRODUCT_ERROR = "GET_PRODUCT_ERROR";
+export const GET_PRODUCT_LOADING_ON = "GET_PRODUCT_LOADING_ON";
+export const GET_PRODUCT_LOADING_OFF = "GET_PRODUCT_LOADING_OFF";
 
 export function scrollToTop() {
   window.scrollTo(0, 0);
@@ -211,6 +215,41 @@ export const getByCollectionAction = (query) => {
     } finally {
       dispatch({
         type: GET_PRODUCTS_LOADING_OFF,
+      });
+    }
+  };
+};
+
+export const getByIdAction = (id) => {
+  return async (dispatch) => {
+    try {
+      dispatch({
+        type: GET_PRODUCT_LOADING_ON,
+      });
+
+      let resp = await fetch(baseline + "/id/" + id);
+      if (resp.ok) {
+        let fetchedProduct = await resp.json();
+        console.log(fetchedProduct); // Controlla che il prodotto sia ricevuto correttamente
+        dispatch({
+          type: GET_PRODUCT,
+          payload: fetchedProduct, // Assicurati che il payload sia l'oggetto del prodotto
+        });
+      } else {
+        dispatch({
+          type: GET_PRODUCT_ERROR,
+          payload: "Resp not ok",
+        });
+      }
+    } catch (error) {
+      console.log(error);
+      dispatch({
+        type: GET_PRODUCT_ERROR,
+        payload: error.message,
+      });
+    } finally {
+      dispatch({
+        type: GET_PRODUCT_LOADING_OFF,
       });
     }
   };

@@ -16,7 +16,10 @@ const CollectionPicker = (props) => {
           />
         </Col>
         <Col className="d-flex justify-content-center">
-          <p>{/*  {product?.collection} {""}  */ /*}Collection</p>
+          <p>
+            {" "}
+            {product?.collection} {""} Collection
+          </p>
         </Col>
       </Row>
     </Container>
