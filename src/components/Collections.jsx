@@ -1,4 +1,4 @@
-import { Container, Row, Col } from "react-bootstrap";
+/* import { Container, Row, Col } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import "../styles/homepage.css";
 import { setQueryAction, scrollToTop } from "../redux/actions";
@@ -50,7 +50,7 @@ const Collections = (props) => {
   console.log(collectionsArray);
   /* const product = props.collectionsArray; */
 
-  return (
+/* return (
     <Container className="mx-auto my-auto d-flex flex-column">
       <Row className="my-4">
         <h2 className="mb-5">Collections</h2>
@@ -78,4 +78,4 @@ const Collections = (props) => {
   );
 };
 
-export default Collections;
+export default Collections; */

@@ -1,4 +1,4 @@
-import { Container, Row, Col, Button, Alert } from "react-bootstrap";
+/* import { Container, Row, Col, Button, Alert } from "react-bootstrap";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -35,7 +35,7 @@ const Detail = (props) => {
   }, [favourites, product.id]);
   //console.log(products); */
 
-  const handleFavIconClick = () => {
+/* const handleFavIconClick = () => {
     if (isUserLoggedIn) {
       // Se l'utente è loggato, aggiungi o rimuovi il prodotto dai preferiti
       if (isFav) {
@@ -110,3 +110,4 @@ const Detail = (props) => {
 };
 
 export default Detail;
+ */

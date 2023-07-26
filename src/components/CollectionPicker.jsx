@@ -1,4 +1,4 @@
-import { Container, Row, Col } from "react-bootstrap";
+/* import { Container, Row, Col } from "react-bootstrap";
 import "../styles/homepage.css";
 
 const CollectionPicker = (props) => {
@@ -16,11 +16,11 @@ const CollectionPicker = (props) => {
           />
         </Col>
         <Col className="d-flex justify-content-center">
-          <p>{/*  {product?.collection} {""}  */}Collection</p>
+          <p>{/*  {product?.collection} {""}  */ /*}Collection</p>
         </Col>
       </Row>
     </Container>
   );
 };
 
-export default CollectionPicker;
+export default CollectionPicker; */

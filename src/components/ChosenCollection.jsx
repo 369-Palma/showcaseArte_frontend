@@ -1,4 +1,4 @@
-import { Row, Col, Container } from "react-bootstrap";
+/* import { Row, Col, Container } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { getByCollectionAction } from "../redux/actions";
@@ -27,6 +27,6 @@ const ChosenCollection = () => {
       </Container>
     </>
   );
-};
+}; 
 
-export default ChosenCollection;
+export default ChosenCollection;*/

@@ -1,4 +1,4 @@
-import { Container, Row, Col, ListGroup, Button } from "react-bootstrap";
+/* import { Container, Row, Col, ListGroup, Button } from "react-bootstrap";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -39,8 +39,9 @@ const SingleProduct = (props) => {
 
           <Col>
             <p>{product?.price} €</p>
-          </Col>
-          {/*     <Col>
+          </Col> */
+{
+  /*     <Col>
             <p>
               {" "}
               Size: {""} {product?.length} x {product?.width}{" "}
@@ -48,8 +49,9 @@ const SingleProduct = (props) => {
           </Col>
           <Col>
             <p> {product?.description} </p>
-          </Col> */}
-        </Row>
+          </Col> */
+}
+/*  </Row>
         <Button
           className="bottone text-light text-primary fs-6"
           onClick={() => navigate("/details/" + products.id)}
@@ -62,3 +64,4 @@ const SingleProduct = (props) => {
 };
 
 export default SingleProduct;
+ */
