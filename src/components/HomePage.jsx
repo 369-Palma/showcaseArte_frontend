@@ -1,6 +1,6 @@
 //import CustomNav from "./CustomNav";
 import Carosello from "./Carosello";
-//import Collections from "./Collections";
+import Collections from "./Collections";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getProductsAction } from "../redux/actions";
@@ -15,7 +15,7 @@ const HomePage = () => {
   return (
     <>
       <Carosello className="col-sx-12 col-md-8" />
-      {/* <Collections /> */}
+      <Collections />
     </>
   );
 };
