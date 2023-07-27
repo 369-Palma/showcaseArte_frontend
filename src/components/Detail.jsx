@@ -1,4 +1,4 @@
-import { Container, Row, Col, Button, Alert } from "react-bootstrap";
+/* import { Container, Row, Col, Button, Alert } from "react-bootstrap";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -13,9 +13,9 @@ import {
 
 import { useParams } from "react-router-dom";
 //import Register from "./Register";
-
+*/
 const Detail = (props) => {
-  const idProd = useSelector((state) => state.idProd.idProd);
+  /* const idProd = useSelector((state) => state.idProd.idProd);
   console.log(idProd);
   const prodObj = useSelector((state) => state.idProd.prodObj);
   const dispatch = useDispatch();
@@ -41,12 +41,12 @@ const Detail = (props) => {
     dispatch(getByIdAction(id));
   }, [id]);
 
-  if (prodObj === null) {
-    // Puoi mostrare un messaggio di caricamento o qualsiasi altra cosa desideri durante il caricamento dei dati
-    return <p>Loading...</p>;
-  }
+  if (prodObj === null) { */
+  // Puoi mostrare un messaggio di caricamento o qualsiasi altra cosa desideri durante il caricamento dei dati
+  return <></>; /* {/* <p>Loading...</p>; */
+};
 
-  return (
+/*  return (
     <Container className="my-3">
       <Row className="d-flex flex-xs-row my-0">
         <Col>
@@ -110,6 +110,6 @@ const Detail = (props) => {
       )}
     </Container>
   );
-};
+};*/
 
 export default Detail;

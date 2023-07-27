@@ -10,7 +10,7 @@ import {
   scrollToTop,
 } from "../redux/actions";
 import "../styles/collection.css";
-import { FaRegHeart, FaHeart } from "react-icons/fa";
+import { FaRegHeart, FaHeart, FaHeartCircle } from "react-icons/fa";
 import { useEffect, useState } from "react";
 
 const SingleProduct = (props) => {
@@ -25,7 +25,7 @@ const SingleProduct = (props) => {
 
   const handleImageClick = (idProduct) => {
     dispatch(setIdAction(idProduct));
-    navigate("/details/" + idProduct.toString());
+    // navigate("/details/" + idProduct.toString());
     scrollToTop();
   };
 
@@ -76,7 +76,11 @@ const SingleProduct = (props) => {
           </Row>
           <Col>
             <p>{product?.price} €</p>
-          </Col>{" "}
+            <p>
+              Size: {""} {product?.length} x {product?.width}
+            </p>
+            <p> {product?.description} </p>
+          </Col>
         </Row>
       </Container>
     </>
