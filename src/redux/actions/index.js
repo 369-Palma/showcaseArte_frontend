@@ -15,6 +15,7 @@ export const GET_PRODUCT = "GET_PRODUCT";
 export const GET_PRODUCT_ERROR = "GET_PRODUCT_ERROR";
 export const GET_PRODUCT_LOADING_ON = "GET_PRODUCT_LOADING_ON";
 export const GET_PRODUCT_LOADING_OFF = "GET_PRODUCT_LOADING_OFF";
+export const RESET_FAVOURITES = "RESET_FAVOURITES";
 
 export function scrollToTop() {
   window.scrollTo(0, 0);
@@ -73,11 +74,6 @@ export const removeFromCartAction = (i) => ({
   payload: i,
 });
 
-export const addToFavAction = (productSelected) => ({
-  type: ADD_TO_FAV,
-  payload: productSelected,
-});
-
 export const addToFavActionWithThunk = (productSelected) => {
   return (dispatch, getState) => {
     const currentState = getState();
@@ -101,9 +97,18 @@ export const addToFavActionWithThunk = (productSelected) => {
   };
 };
 
-export const removeFromFavAction = (i) => ({
+export const addToFavAction = (productSelected) => ({
+  type: ADD_TO_FAV,
+  payload: productSelected,
+});
+
+export const removeFromFavAction = (productId) => ({
   type: REMOVE_FROM_FAV,
-  payload: i,
+  payload: productId,
+});
+
+export const resetFavouritesAction = () => ({
+  type: RESET_FAVOURITES,
 });
 
 export const setUserNameAction = (username) => ({

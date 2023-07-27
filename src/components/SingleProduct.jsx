@@ -3,46 +3,41 @@ import { useNavigate } from "react-router";
 
 import { useSelector, useDispatch } from "react-redux";
 import {
+  setIdAction,
   addToFavAction,
   removeFromFavAction,
+  resetFavouritesAction,
   scrollToTop,
 } from "../redux/actions";
 import "../styles/collection.css";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
-import { setIdAction, ADD_TO_FAV, REMOVE_FROM_FAV } from "../redux/actions";
 import { useEffect, useState } from "react";
 
 const SingleProduct = (props) => {
   const navigate = useNavigate();
-  const userName = useSelector((state) => state.user.name);
-  const products = useSelector((state) => state.products.products);
   const product = props.product;
-  const [isFav, setIsFav] = useState(false);
-  console.log(products);
+  const userName = useSelector((state) => state.user.name);
   const favourites = useSelector((state) => state.fav.content);
-  console.log("favoriti all'inizio", favourites);
+  const isFav = favourites.some((favProduct) => favProduct.id === product.id);
+  const [favorito, setFavorito] = useState(false);
+
   const dispatch = useDispatch();
 
   const handleImageClick = (idProduct) => {
-    console.log(
-      "l'idProduct in SingleProduct è di tipo:",
-      typeof idProduct,
-      "l'idProduct in SingleProduct selezionato è:",
-      idProduct
-    );
     dispatch(setIdAction(idProduct));
     navigate("/details/" + idProduct.toString());
     scrollToTop();
   };
 
   const handleFavClick = () => {
-    if (isFav === true) {
-      dispatch(removeFromFavAction(product?.id));
-      console.log("i miei preferiti sono:", favourites);
-      setIsFav(!isFav);
+    if (favorito) {
+      dispatch(removeFromFavAction(product.id));
+      console.log("ho rimosso", product.id, "dai favoriti");
+      setFavorito(false);
     } else {
-      dispatch(addToFavAction(product?.id));
-      setIsFav(!isFav);
+      dispatch(addToFavAction(product.id));
+      console.log("ho aggiunto", product.id, "ai favoriti");
+      setFavorito(true);
     }
   };
 
@@ -64,7 +59,7 @@ const SingleProduct = (props) => {
               <p className="titoloQuadro">{product?.title}</p>
             </Col>
             <Col className="d-flex justify-content-end pt-1">
-              {isFav ? (
+              {favorito ? (
                 <FaHeart
                   className="w-25"
                   color="red"
