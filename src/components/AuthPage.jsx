@@ -1,8 +1,16 @@
+import { Container, Row, Col } from "react-bootstrap";
+import Register from "./Register";
+
 const AuthPage = () => {
   return (
-    <>
-      <h2>Register/login here</h2>
-    </>
+    <Container className="authForm flex-column" id="authenticationForm">
+      <Row className="w-100">
+        <Col className="border border-black">
+          <Register />
+        </Col>
+        <Col className="border border-black">{/* <Login /> */}</Col>
+      </Row>
+    </Container>
   );
 };
 export default AuthPage;

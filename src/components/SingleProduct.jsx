@@ -16,7 +16,7 @@ import { useEffect, useState } from "react";
 const SingleProduct = (props) => {
   const navigate = useNavigate();
   const product = props.product;
-  const userName = useSelector((state) => state.user.name);
+  const username = useSelector((state) => state.auth.username);
   const favourites = useSelector((state) => state.fav.content);
   const isFav = favourites.some((favProduct) => favProduct.id === product.id);
   const [favorito, setFavorito] = useState(false);

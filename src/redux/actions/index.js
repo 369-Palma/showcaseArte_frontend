@@ -4,7 +4,17 @@ export const ADD_TO_CART = "ADD_TO_CART";
 export const REMOVE_FROM_CART = "REMOVE_FROM_CART";
 export const ADD_TO_FAV = "ADD_TO_FAV";
 export const REMOVE_FROM_FAV = "REMOVE_FROM_FAV";
+
 export const SET_USERNAME = "SET_USERNAME";
+export const SET_VALID_USERNAME = "SET_VALID_USERNAME";
+export const SET_EMAIL = "SET_EMAIL";
+export const SET_VALID_EMAIL = "SET_VALID_EMAIL";
+export const SET_PASSWORD = "SET_PASSWORD";
+export const SET_VALID_PASSWORD = "SET_VALID_PASSWORD";
+export const SET_MATCH_PWD = "SET_MATCH_PWS";
+export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
+export const LOGOUT = "LOGOUT";
+
 export const GET_PRODUCTS = "GET_PRODUCTS";
 export const GET_PRODUCTS_ERROR = "GET_PRODUCTS_ERROR";
 export const GET_PRODUCTS_LOADING_ON = "GET_PRODUCTS_LOADING_ON";
@@ -21,12 +31,20 @@ export function scrollToTop() {
   window.scrollTo(0, 0);
 }
 
-const urlBase = process.env.baseURL;
+//COSTANTI
+//const urlBase = process.env.baseURL;
 const baseline = "http://localhost:8086/api/products";
-export default axios.create({
-  urlBase,
-});
 
+export const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9_]{3,23}$/;
+export const PWD_REGEX =
+  /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,}$/;
+export const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+/* export default axios.create({
+  urlBase,
+}); */
+
+//AZIONI PER QUERY (collection)
 export const setQueryAction = (query) => {
   return {
     type: SET_QUERY,
@@ -34,6 +52,7 @@ export const setQueryAction = (query) => {
   };
 };
 
+//AZIONE PER SALVARE L'ID
 export const setIdAction = (id) => {
   return {
     type: SET_ID,
@@ -41,61 +60,59 @@ export const setIdAction = (id) => {
   };
 };
 
+//AZIONI PER L'AUTENTICAZIONE (REGISTRAZIONE E LOGIN)
+/* USERNAME */
+export const setUsernameAction = (username) => ({
+  type: SET_USERNAME,
+  payload: username,
+});
+
+export const setValidUsernameAction = (isValid) => ({
+  type: SET_VALID_USERNAME,
+  payload: isValid,
+});
+
+/* EMAIL */
+export const setEmailAction = (email) => ({
+  type: SET_EMAIL,
+  payload: email,
+});
+
+export const setValidEmailAction = (isValid) => ({
+  type: SET_VALID_EMAIL,
+  payload: isValid,
+});
+
+/* PASSWORD */
+
+export const setPasswordAction = (password) => ({
+  type: SET_PASSWORD,
+  payload: password,
+});
+
+export const setValidPasswordAction = (isValid) => ({
+  type: SET_VALID_PASSWORD,
+  payload: isValid,
+});
+
+/* MATCH PASSWORD */
+export const setMatchPasswordAction = (password) => ({
+  type: SET_MATCH_PWD,
+  payload: password,
+});
+
+//AZIONI PER IL CARRELLO
 export const addToCartAction = (productSelected) => ({
   type: ADD_TO_CART,
   payload: productSelected,
 });
-
-export const addToCartActionWithThunk = (productSelected) => {
-  return (dispatch, getState) => {
-    const currentState = getState();
-    console.log("DENTRO ADD TO CART THUNK", getState());
-    console.log(
-      "CHECK",
-      currentState.cart.content.findIndex(
-        (product) => product.id === productSelected.id
-      )
-    );
-    if (
-      currentState.cart.content.findIndex(
-        (product) => product.id === productSelected.id
-      ) === -1
-    ) {
-      dispatch({
-        type: ADD_TO_CART, // type è obbligatoria in ogni action
-        payload: productSelected, // payload non è obbligatorio, ma a volte sicuramente necessario
-      });
-    }
-  };
-};
 
 export const removeFromCartAction = (i) => ({
   type: REMOVE_FROM_CART,
   payload: i,
 });
 
-export const addToFavActionWithThunk = (productSelected) => {
-  return (dispatch, getState) => {
-    const currentState = getState();
-    console.log("DENTRO ADD TO FAV THUNK", getState());
-    console.log(
-      "CHECK",
-      currentState.fav.content.findIndex(
-        (product) => product.id === productSelected.id
-      )
-    );
-    if (
-      currentState.fav.content.findIndex(
-        (product) => product.id === productSelected.id
-      ) === -1
-    ) {
-      dispatch({
-        type: ADD_TO_FAV,
-        payload: productSelected,
-      });
-    }
-  };
-};
+// AZIONI PER FAVORITI
 
 export const addToFavAction = (productSelected) => ({
   type: ADD_TO_FAV,
@@ -109,11 +126,6 @@ export const removeFromFavAction = (productId) => ({
 
 export const resetFavouritesAction = () => ({
   type: RESET_FAVOURITES,
-});
-
-export const setUserNameAction = (username) => ({
-  type: SET_USERNAME,
-  payload: username,
 });
 
 // FETCH

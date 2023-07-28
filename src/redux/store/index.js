@@ -5,11 +5,11 @@ import { encryptTransform } from "redux-persist-transform-encrypt";
 
 // import mainReducer from "../reducers";
 import cartReducer from "../reducers/cartReducers";
-import userReducer from "../reducers/userReducer";
 import productsReducer from "../reducers/productsReducer";
 import favouritesReducer from "../reducers/favouritesReducer";
 import queryReducer from "../reducers/queryReducer";
 import idReducer from "../reducers/idReducer";
+import authReducer from "../reducers/authReducer";
 
 const persistConfig = {
   key: "root",
@@ -23,7 +23,7 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   cart: cartReducer,
-  user: userReducer,
+  auth: authReducer,
   products: productsReducer,
   fav: favouritesReducer,
   query: queryReducer,
