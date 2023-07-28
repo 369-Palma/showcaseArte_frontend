@@ -1,6 +1,11 @@
-import { configureStore, combineReducers } from "@reduxjs/toolkit";
+import {
+  configureStore,
+  combineReducers,
+  applyMiddleware,
+} from "@reduxjs/toolkit";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
+import thunk from "redux-thunk";
 import { encryptTransform } from "redux-persist-transform-encrypt";
 
 // import mainReducer from "../reducers";
@@ -30,7 +35,11 @@ const rootReducer = combineReducers({
   idProd: idReducer,
 });
 
-const persistedReducer = persistReducer(persistConfig, rootReducer);
+const persistedReducer = persistReducer(
+  persistConfig,
+  rootReducer,
+  applyMiddleware(thunk)
+);
 
 export const store = configureStore({
   // reducer

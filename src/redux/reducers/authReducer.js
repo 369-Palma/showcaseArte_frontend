@@ -6,7 +6,8 @@ import {
   SET_PASSWORD,
   SET_VALID_PASSWORD,
   SET_VALID_MATCH,
-  SET_ERROR_MESSAGE,
+  SET_ERR_MSG,
+  SET_SUCCESS,
   LOGIN_SUCCESS,
   LOGOUT,
   SET_MATCH_PWD,
@@ -70,19 +71,36 @@ const authReducer = (state = initialState, action) => {
         matchPwd: action.payload,
         validMatch: state.password === action.payload,
       };
+    case SET_VALID_MATCH:
+      return {
+        ...state,
+        validMatch: action.payload,
+      };
+    case SET_SUCCESS:
+      return {
+        ...state,
+        success: action.payload,
+      };
+    case SET_ERR_MSG:
+      return {
+        ...state,
+        errMsg: action.payload,
+      };
 
     case LOGIN_SUCCESS:
       return {
         ...state,
         isLoggedIn: true,
-        // Altri dati dell'utente e proprietà di autenticazione da aggiornare
+        username: "",
+        password: "",
       };
 
     case LOGOUT:
       return {
         ...state,
         isLoggedIn: false,
-        // Altri dati dell'utente e proprietà di autenticazione da aggiornare
+        username: "",
+        password: "",
       };
 
     default:

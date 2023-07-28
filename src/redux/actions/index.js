@@ -1,4 +1,13 @@
-import axios from "axios";
+//import axios from "axios";
+/* import {
+  setUsernameAction,
+  setPasswordAction,
+  setEmailAction,
+  setMatchPasswordAction,
+} from "./authActions"; */
+import { useEffect, useRef, useState } from "react";
+
+const registerUrl = `http://localhost:8086/api/auth/register`;
 
 export const ADD_TO_CART = "ADD_TO_CART";
 export const REMOVE_FROM_CART = "REMOVE_FROM_CART";
@@ -12,8 +21,11 @@ export const SET_VALID_EMAIL = "SET_VALID_EMAIL";
 export const SET_PASSWORD = "SET_PASSWORD";
 export const SET_VALID_PASSWORD = "SET_VALID_PASSWORD";
 export const SET_MATCH_PWD = "SET_MATCH_PWS";
+export const SET_VALID_MATCH = "SET_VALID_MATCH";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGOUT = "LOGOUT";
+export const SET_SUCCESS = "SET_SUCCESS";
+export const SET_ERR_MSG = "SET_ERR_MSG";
 
 export const GET_PRODUCTS = "GET_PRODUCTS";
 export const GET_PRODUCTS_ERROR = "GET_PRODUCTS_ERROR";
@@ -62,43 +74,65 @@ export const setIdAction = (id) => {
 
 //AZIONI PER L'AUTENTICAZIONE (REGISTRAZIONE E LOGIN)
 /* USERNAME */
-export const setUsernameAction = (username) => ({
+export const setUsername = (username) => ({
   type: SET_USERNAME,
   payload: username,
 });
 
-export const setValidUsernameAction = (isValid) => ({
+export const setValidUsername = (isValid) => ({
   type: SET_VALID_USERNAME,
   payload: isValid,
 });
 
 /* EMAIL */
-export const setEmailAction = (email) => ({
+export const setEmail = (email) => ({
   type: SET_EMAIL,
   payload: email,
 });
 
-export const setValidEmailAction = (isValid) => ({
+export const setValidEmail = (isValid) => ({
   type: SET_VALID_EMAIL,
   payload: isValid,
 });
 
 /* PASSWORD */
 
-export const setPasswordAction = (password) => ({
+export const setPassword = (password) => ({
   type: SET_PASSWORD,
   payload: password,
 });
 
-export const setValidPasswordAction = (isValid) => ({
+export const setValidPassword = (isValid) => ({
   type: SET_VALID_PASSWORD,
   payload: isValid,
 });
 
 /* MATCH PASSWORD */
-export const setMatchPasswordAction = (password) => ({
+export const setMatchPassword = (password) => ({
   type: SET_MATCH_PWD,
   payload: password,
+});
+
+export const logout = () => async (dispatch) => {
+  try {
+    sessionStorage.removeItem("username", "password");
+
+    dispatch({ type: "LOGOUT_SUCCESS" });
+  } catch (error) {
+    dispatch({ type: "LOGOUT_ERROR", payload: error.message });
+  }
+};
+
+// Azione per impostare il valore di success
+export const setSuccessAction = (success) => ({
+  type: SET_SUCCESS,
+  payload: success,
+});
+
+// Azione per impostare il valore di errMsg
+export const setErrMsgAction = (errMsg) => ({
+  type: SET_ERR_MSG,
+  payload: errMsg,
 });
 
 //AZIONI PER IL CARRELLO
@@ -270,4 +304,49 @@ export const getByIdAction = (id) => {
       });
     }
   };
+};
+
+//fetch per registrazione
+export const registerUser = () => async (dispatch, getState) => {
+  const { auth } = getState();
+  const { username, email, password, matchPwd } = auth;
+  const [success, setSuccess] = useState(false);
+  const [errMsg, setErrMsg] = useState("");
+  const errRef = useRef();
+
+  if (!username || !email || !password || !matchPwd) {
+    dispatch(setErrMsg("Please fill in all the required fields"));
+    return;
+  }
+
+  try {
+    const response = await fetch(registerUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username: username,
+        email: email,
+        password: password,
+      }),
+    });
+
+    // Assuming the server returns JSON data in the response
+    const data = await response.json();
+    console.log(data);
+
+    dispatch(setSuccess(true));
+    dispatch(setUsername(""));
+    dispatch(setPassword(""));
+    dispatch(setEmail(""));
+    dispatch(setMatchPassword(""));
+  } catch (error) {
+    if (error.response?.status === 409) {
+      dispatch(setErrMsg("C'è stato un errore nel contattare il server"));
+    } else if (error?.response) {
+      dispatch(setErrMsg("Registrazione fallita!"));
+    }
+    errRef.current?.focus();
+  }
 };

@@ -12,6 +12,7 @@ import CustomNav from "./components/CustomNav";
 import ChosenCollection from "./components/ChosenCollection";
 import Detail from "./components/Detail";
 import AuthPage from "./components/AuthPage";
+import MyFavs from "./components/MyFavs";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
         <Route path="/collection/:query" element={<ChosenCollection />} />
         <Route path="/details/:id" element={<Detail />} />
         <Route path="/authPage" element={<AuthPage />} />
+        <Route path="/favourites" element={<MyFavs />} />
       </Routes>
       <Footer />
     </BrowserRouter>
