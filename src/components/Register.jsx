@@ -21,11 +21,15 @@ import {
   faXmark,
   faCheck,
 } from "@fortawesome/free-solid-svg-icons";
-import { FaHandPointRight as LiaHandPointRight } from "react-icons/fa";
+/* import { FaHandPointRight as LiaHandPointRight } from "react-icons/fa"; */
+import { useTheme, useMediaQuery } from "@mui/material";
+import { LiaHandPointRight, LiaHandPointDown } from "react-icons/lia";
 
 const Register = () => {
   const dispatch = useDispatch();
 
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   /* username */
   const username = useSelector((state) => state.auth.username);
   const validUsername = useSelector((state) => state.auth.validUsername);
@@ -151,32 +155,16 @@ const Register = () => {
       {success ? (
         <Alert color="green">
           {" "}
-          You are successfully signed in. Login <LiaHandPointRight />
+          You are successfully signed in. Login{" "}
+          {isMobile ? <LiaHandPointDown /> : <LiaHandPointRight />}
         </Alert>
       ) : (
-        /* <>
-            <p
-              ref={errRef}
-              className={errMsg ? "errMsg" : "offscreen"}
-              aria-live="assertive"
-            >
-              {errMsg}
-            </p>
-          </> 
-        )}*/
-        /*{<p
-          ref={errRef}
-          className={errMsg ? "errMsg" : "offscreen"}
-          aria-live="assertive"
-        >
-          {errMsg}
-        </p> */
-
         <Col xs={12} className="authForm mx-auto">
           <Col className="titolo txt-center">
             <p className="ms-5 ">Create a new account here</p>
           </Col>
           <h4 className="ms-5 mb-3 text-center"> Register </h4>
+
           {/* USERNAME FIELD */}
           <Form onSubmit={handleSubmit} className="p-3 w-75 mx-auto">
             <Form.Group className="mb-3" controlId="formBasicName">
