@@ -5,3 +5,7 @@
   max-width: 528px;
   max-height: 515px;
 }
+
+#singleImg {
+  cursor: none;
+}

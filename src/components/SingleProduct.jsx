@@ -48,6 +48,7 @@ const SingleProduct = (props) => {
           <Col className="">
             <img
               className="imgCollection w-100 h-100"
+              id="singleImg"
               variant="top"
               src={product?.img}
               alt={product?.title}
