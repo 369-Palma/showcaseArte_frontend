@@ -88,15 +88,20 @@ const CustomNav = () => {
               >
                 {!username ? (
                   <Link
-                    className={`nav-link ${
+                    className={`nav-link bottone text-center${
                       location.pathname === "/authPage" ? "active" : ""
                     }`}
                     to="/authPage"
                   >
-                    Login/Register
+                    Login
                   </Link>
                 ) : (
-                  <Button onClick={handleLogout}>Logout</Button>
+                  <Button
+                    className="bottone text-center w-100"
+                    onClick={handleLogout}
+                  >
+                    Logout
+                  </Button>
                 )}
               </Col>
             </Row>

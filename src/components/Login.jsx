@@ -107,7 +107,7 @@ const Login = () => {
         </p>
         <h4 className="ms-5 mb-3 text-center"> Login </h4>
 
-        <Form onSubmit={handleSubmit} className="p-3">
+        <Form onSubmit={handleSubmit} className="px-5 ">
           <Form.Group className="mb-3" controlId="formUsername">
             <Form.Label>Username:</Form.Label>
             <Form.Control
@@ -148,10 +148,10 @@ const Login = () => {
             LOGIN
           </Button>
         </Form>
-        <p className="mt-4">
+        {/* <p className="mt-4">
           Are you new here? <br />
           <Link to="/register"> Sign in </Link>
-        </p>
+        </p> */}
       </section>
     </>
   );

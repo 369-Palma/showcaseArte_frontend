@@ -24,6 +24,19 @@ h2 {
   text-align: center;
 }
 
+.bottone {
+  border: 1px solid black;
+  background-color: #fcefc0df;
+  border-radius: 15px;
+  width: 70px;
+  height: 45px;
+}
+
+.bottone :hover {
+  border: 1px solid rgb(245, 244, 246);
+  background-color: #fcefc0b7;
+}
+
 .nav-link {
   font-weight: 400px;
 }
