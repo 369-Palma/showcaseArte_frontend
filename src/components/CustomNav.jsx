@@ -1,18 +1,21 @@
 import { useState } from "react";
 import { Navbar, Nav, Container, Button, Col, Row } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
+import { logoutAction } from "../redux/actions";
 
 const CustomNav = () => {
   const location = useLocation();
-
+  const dispatch = useDispatch();
   const username = useSelector((state) => state.auth.username);
   const [showLinks, setShowLinks] = useState(false);
 
+  const handleLogout = () => {
+    dispatch(logoutAction());
+  };
   return (
     <Navbar expand="md" className="bg-body-tertiary">
       <Container className="d-flex flex-row">
-        {/* <Navbar.Brand href="#home">Logo</Navbar.Brand> */}
         <Navbar.Toggle
           aria-controls="basic-navbar-nav"
           onClick={() => setShowLinks(!showLinks)}
@@ -93,7 +96,7 @@ const CustomNav = () => {
                     Login/Register
                   </Link>
                 ) : (
-                  <Button>Logout</Button>
+                  <Button onClick={handleLogout}>Logout</Button>
                 )}
               </Col>
             </Row>

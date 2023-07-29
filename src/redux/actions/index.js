@@ -123,6 +123,10 @@ export const logout = () => async (dispatch) => {
   }
 };
 
+export const logoutAction = () => ({
+  type: LOGOUT,
+});
+
 // Azione per impostare il valore di success
 export const setSuccessAction = (success) => ({
   type: SET_SUCCESS,

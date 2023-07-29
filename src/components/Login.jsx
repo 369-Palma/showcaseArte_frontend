@@ -1,7 +1,13 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState, useRef } from "react";
 import { Col, Form, Button } from "react-bootstrap";
-import { setUsername, setPassword, LOGOUT, logout } from "../redux/actions";
+import {
+  setUsername,
+  setPassword,
+  LOGOUT,
+  logout,
+  logoutAction,
+} from "../redux/actions";
 import MyFavs from "./MyFavs";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -39,7 +45,7 @@ const Login = () => {
   }, []);
 
   const handleLogout = () => {
-    dispatch(logout());
+    dispatch(logoutAction());
   };
 
   const handleSubmit = async (e) => {
