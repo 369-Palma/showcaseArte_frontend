@@ -2,7 +2,12 @@ import { Container, Row, Col } from "react-bootstrap";
 import Register from "./Register";
 import Login from "./Login";
 import { useDispatch } from "react-redux";
-import { setUsername, setPassword, setSuccessAction } from "../redux/actions";
+import {
+  setUsername,
+  setPassword,
+  setSuccessAction,
+  setErrMsgAction,
+} from "../redux/actions";
 import { useEffect } from "react";
 
 const AuthPage = () => {
@@ -12,6 +17,7 @@ const AuthPage = () => {
     dispatch(setUsername(""));
     dispatch(setPassword(""));
     dispatch(setSuccessAction(false));
+    dispatch(setErrMsgAction(""));
   }, [dispatch]);
 
   return (
