@@ -20,16 +20,13 @@ const ChosenCollection = () => {
       <Container className="my-auto">
         <Row className="justify-content-center">
           <h2 className="mx-auto my-5 "> {query.query} Collection</h2>
-          {/*   {username ? (
+          {!username ? (
             <Alert variant="warning">
               Login <Link to="/authPage">here</Link> to see your favourites list
             </Alert>
           ) : (
-            <FaHeart color="gold" />
-          )} */}
-          <Alert variant="warning">
-            Login <Link to="/authPage">here</Link> to see your favourites list
-          </Alert>
+            <Alert className="d-none" />
+          )}
           {products?.map((product) => (
             <Col xs={12} md={6} key={product?.id}>
               <SingleProduct product={product} />

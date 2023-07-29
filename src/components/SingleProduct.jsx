@@ -1,4 +1,4 @@
-import { Container, Row, Col, Alert } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router";
 
 import { useSelector, useDispatch } from "react-redux";
@@ -10,7 +10,8 @@ import {
   scrollToTop,
 } from "../redux/actions";
 import "../styles/collection.css";
-import { FaRegHeart, FaHeart, FaHeartCircle } from "react-icons/fa";
+import { FaRegHeart, FaHeart /* FaHeartCircle */ } from "react-icons/fa";
+import { HiOutlinePencilAlt } from "react-icons/hi";
 import { useEffect, useState } from "react";
 
 const SingleProduct = (props) => {
@@ -59,21 +60,27 @@ const SingleProduct = (props) => {
             <Col>
               <p className="titoloQuadro">{product?.title}</p>
             </Col>
-            <Col className="d-flex justify-content-end pt-1">
-              {favorito ? (
-                <FaHeart
-                  className="w-25"
-                  color="red"
-                  onClick={handleFavClick}
-                />
-              ) : (
-                <FaRegHeart
-                  className="w-25"
-                  color="red"
-                  onClick={handleFavClick}
-                />
-              )}
-            </Col>
+            {username !== "lory" ? (
+              <Col className="d-flex justify-content-end pt-1">
+                {favorito ? (
+                  <FaHeart
+                    className="w-25"
+                    color="red"
+                    onClick={handleFavClick}
+                  />
+                ) : (
+                  <FaRegHeart
+                    className="w-25"
+                    color="red"
+                    onClick={handleFavClick}
+                  />
+                )}
+              </Col>
+            ) : (
+              <Col className="d-flex justify-content-end pt-1">
+                <HiOutlinePencilAlt />
+              </Col>
+            )}
           </Row>
           <Col>
             <p>{product?.price} €</p>
