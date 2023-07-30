@@ -7,14 +7,13 @@ import {
   setPassword,
   setValidPassword,
   setMatchPassword,
-  registerUser,
   setSuccessAction,
   setErrMsgAction,
 } from "../redux/actions";
 import { useEffect, useRef, useState } from "react";
 import { USER_REGEX, EMAIL_REGEX, PWD_REGEX } from "../redux/actions";
 import { Col, Form, Button, Alert } from "react-bootstrap";
-import { Link } from "react-router-dom";
+/* import { Link } from "react-router-dom";*/
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCircleInfo,
@@ -50,7 +49,7 @@ const Register = () => {
   const success = useSelector((state) => state.auth.success);
 
   /* errMsg */
-  const errMsg = useSelector((state) => state.auth.errMsg);
+  // const errMsg = useSelector((state) => state.auth.errMsg);
 
   const [userFocus, setUserFocus] = useState(false);
   const [emailFocus, setEmailFocus] = useState(false);
@@ -60,7 +59,7 @@ const Register = () => {
   const userRef = useRef(null);
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
-  const errRef = useRef();
+  // const errRef = useRef();
 
   const registerUrl = `http://localhost:8086/api/auth/register`;
   //useEffect username

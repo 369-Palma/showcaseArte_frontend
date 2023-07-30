@@ -28,8 +28,8 @@ const CustomNav = () => {
               }`}
             >
               <Col
-                xs={11}
-                md={11}
+                xs={9}
+                md={9}
                 className={`d-flex ${
                   showLinks
                     ? "flex-column h-50"
@@ -45,7 +45,7 @@ const CustomNav = () => {
                   }`}
                   to="/about"
                 >
-                  About me
+                  About
                 </Link>
                 <Link
                   className={`nav-link ${
@@ -80,8 +80,8 @@ const CustomNav = () => {
               </Col>
 
               <Col
-                xs={1}
-                md={showLinks ? 11 : 1}
+                xs={3}
+                md={showLinks ? 12 : 3}
                 className={`d-flex ${
                   showLinks ? "align-items-start" : "align-items-end"
                 } ${showLinks ? "mt-3" : "mt-0"}`}
