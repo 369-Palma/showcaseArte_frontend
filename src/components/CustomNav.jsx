@@ -93,7 +93,7 @@ const CustomNav = () => {
                     }`}
                     to="/authPage"
                   >
-                    Login
+                    <Button>Login</Button>
                   </Link>
                 ) : (
                   <Button

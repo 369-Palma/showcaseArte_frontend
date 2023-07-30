@@ -33,17 +33,20 @@ h2 {
   font-weight: bolder;
 }
 
-.bottone {
-  border: 1px solid black;
-  background-color: #f7f0d7df;
-  border-radius: 15px;
-  width: 70px;
-  height: 45px;
+Button {
+  border: 1px solid #d3eef5 !important;
+  background-color: #f7f0d718 !important;
+  color: black !important;
+  border-radius: 10px !important;
+  margin-top: auto;
+  padding-bottom: 2px !important;
+  width: fit-content !important;
+  height: 35px !important;
 }
 
-.bottone :hover {
-  background-color: #fcefc01e;
-  border: 1px solid rgb(161, 161, 251);
+Button:hover {
+  background-color: #d3eef5 !important;
+  border: 1px solid black !important;
 }
 .App-header {
   background-color: #282c34;

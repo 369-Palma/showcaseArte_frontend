@@ -1,25 +1,24 @@
 import { Form, Button, Col } from "react-bootstrap";
 import emailjs from "emailjs-com";
 import { toast } from "react-toastify";
-import CustomNav from "./CustomNav";
 
 const ContactForm = () => {
   const inviaEmail = (e) => {
     e.preventDefault();
     emailjs
       .sendForm(
-        `service_uf2isy6`,
+        `service_zrj2cbm`,
         `template_j8faovd`,
         e.target,
         `3cG7_5IGDFHm5po4E`
       )
       .then(
         (result) => {
-          toast.success("Email inviata con successo");
+          toast.success("Email sent successfully");
           console.log(result.text);
         },
         (error) => {
-          toast.error("Invio Email non riuscito");
+          toast.error("Email not sent");
           console.log(error.text);
         }
       );
@@ -37,7 +36,7 @@ const ContactForm = () => {
 
       <Form
         onSubmit={inviaEmail}
-        className="formBox p-5 mx-auto border rounded-2 col-sx-8 col-md-6"
+        className=" p-5 mx-auto border rounded-2 col-sx-8 col-md-6"
       >
         <Form.Group className="mb-3" controlId="formUsername">
           <Form.Label>Name:</Form.Label>
@@ -64,10 +63,10 @@ const ContactForm = () => {
           <Form.Control
             type="textarea"
             name="message"
+            rows={7}
             required
             placeholder="Write here your message"
             autoComplete="off"
-            rows={5}
           />
         </Form.Group>
         <Button className="bottone mt-3" variant="primary" type="submit">

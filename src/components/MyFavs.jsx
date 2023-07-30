@@ -21,10 +21,8 @@ const MyFavs = () => {
             <Col xs={12} md={6} className="text-start">
               <ul
                 style={{ listStyle: "none" }}
-                className="d-flex flex-column flex-xs-column "
+                className="d-flex flex-column flex-xs-column flex-md-column"
               >
-                {" "}
-                {/* Utilizzo delle classi per il layout responsivo */}
                 {favourites.map((product, i) => (
                   <li key={i} className="my-4 d-flex flex-row me-5 w-100">
                     <FaTrash

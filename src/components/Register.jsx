@@ -13,16 +13,16 @@ import {
 import { useEffect, useRef, useState } from "react";
 import { USER_REGEX, EMAIL_REGEX, PWD_REGEX } from "../redux/actions";
 import { Col, Form, Button, Alert } from "react-bootstrap";
-/* import { Link } from "react-router-dom";*/
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCircleInfo,
   faXmark,
   faCheck,
 } from "@fortawesome/free-solid-svg-icons";
-/* import { FaHandPointRight as LiaHandPointRight } from "react-icons/fa"; */
 import { useTheme, useMediaQuery } from "@mui/material";
 import { LiaHandPointRight, LiaHandPointDown } from "react-icons/lia";
+import "../styles/collection.css";
 
 const Register = () => {
   const dispatch = useDispatch();
@@ -133,10 +133,6 @@ const Register = () => {
       //console.log(data);
       if (response.ok) {
         dispatch(setSuccessAction(false));
-        /*   dispatch(setUsername(""));
-        dispatch(setPassword(""));
-        dispatch(setEmail(""));
-        dispatch(setMatchPassword("")); */
       } else {
         dispatch(setSuccessAction(true));
         dispatch(setErrMsgAction(data.message));
@@ -162,7 +158,10 @@ const Register = () => {
           <Col className="titolo txt-center">
             <p className="ms-5 ">Create a new account here</p>
           </Col>
-          <h4 className="ms-5 mb-3 text-center"> Register </h4>
+          <h4 className="ms-5 mt-5 text-center stileTesto font-weight-bold">
+            {" "}
+            Register{" "}
+          </h4>
 
           {/* USERNAME FIELD */}
           <Form onSubmit={handleSubmit} className="px-5 w-75 mx-auto my-5">

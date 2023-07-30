@@ -1,15 +1,10 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState, useRef } from "react";
 import { Col, Form, Button } from "react-bootstrap";
-import {
-  setUsername,
-  setPassword,
-  LOGOUT,
-  logout,
-  logoutAction,
-} from "../redux/actions";
+import { setUsername, setPassword, logoutAction } from "../redux/actions";
 import MyFavs from "./MyFavs";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import "../styles/collection.css";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -78,8 +73,6 @@ const Login = () => {
       console.log(JSON.stringify(data));
 
       setSuccess(true);
-      /* dispatch(setUsernameAction(""));
-      dispatch(setPasswordAction("")); */
     } catch (error) {
       if (error.response?.status === 409) {
         setErrMsg("Server error occurred");
@@ -88,8 +81,10 @@ const Login = () => {
       }
       errRef.current?.focus();
     }
-    if (success === true) {
+    if (success === true && username !== "lory") {
       navigate("/favourites");
+    } else if (username === "lory") {
+      navigate("/");
     }
   };
   return (
@@ -105,7 +100,10 @@ const Login = () => {
         >
           {errMsg}
         </p>
-        <h4 className="ms-5 mb-3 text-center"> Login </h4>
+        <h4 className="ms-5 mt-5 text-center stileTesto font-weight-bold">
+          {" "}
+          Login{" "}
+        </h4>
 
         <Form onSubmit={handleSubmit} className="px-5 w-75 mx-auto my-5">
           <Form.Group className="mb-3" controlId="formUsername">
@@ -148,10 +146,6 @@ const Login = () => {
             LOGIN
           </Button>
         </Form>
-        {/* <p className="mt-4">
-          Are you new here? <br />
-          <Link to="/register"> Sign in </Link>
-        </p> */}
       </section>
     </>
   );

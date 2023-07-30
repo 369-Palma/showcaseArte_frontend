@@ -2,6 +2,9 @@ import logo from "./assets/img/logo.jpg";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import HomePage from "./components/HomePage";
 import Cart from "./components/Cart";
 import Blog from "./components/Blog";
@@ -26,7 +29,7 @@ function App() {
           className="logo d-flex justify-content-center mx-auto w-100"
         />
       </div>
-
+      <ToastContainer />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/cart" element={<Cart />} />
