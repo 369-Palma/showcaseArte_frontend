@@ -1,5 +1,6 @@
-.product-cover_small {
-  height: 7em;
-  margin-right: 1em;
-  margin-left: 1em;
+.imgSmall {
+  max-width: 100px;
+  max-height: 100px;
+  margin-right: 3em;
+  margin-left: 3em;
 }

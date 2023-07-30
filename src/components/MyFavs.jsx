@@ -15,31 +15,34 @@ const MyFavs = () => {
       {favourites.length === 0 ? (
         <p> Not favourites yet</p>
       ) : (
-        <Col sm={12}>
-          <ul style={{ listStyle: "none" }}>
+        <Col xs={12} md={6} className="text-start">
+          <ul style={{ listStyle: "none" }} className="d-flex flex-column">
             {favourites.map((product, i) => (
-              <li key={i} className="my-4 d-flex flex-row">
+              <li
+                key={i}
+                //style={{ justifyContent: "space-evenly" }}
+                className="my-4 d-flex flex-row me-5 w-100"
+              >
                 <FaTrash
                   color="red"
                   onClick={() => {
-                    // dispatch({ type: REMOVE_FROM_CART, payload: i });
                     dispatch(removeFromFavAction(i));
                   }}
                 />
                 <img
-                  className="product-cover-small"
-                  src={product?.imageUrl}
-                  alt="product selected"
+                  className="imgSmall"
+                  src={product?.img}
+                  alt={product?.id}
                 />
                 <p>{product?.title}</p>
-                <p>{product?.price} €</p>
+                <p className="mx-5">{product?.price} €</p>
               </li>
             ))}
           </ul>
         </Col>
       )}
       <Row>
-        <Col sm={12} className="font-weight-bold mb-3 ml-4">
+        <Col sm={12} className="font-weight-bold my-5 ms-5 ">
           TOTAL:{" "}
           {favourites.reduce(
             (acc, currentValue) => acc + parseFloat(currentValue.price),
