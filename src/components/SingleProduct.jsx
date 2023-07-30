@@ -20,7 +20,7 @@ const SingleProduct = (props) => {
   const username = useSelector((state) => state.auth.username);
   const favourites = useSelector((state) => state.fav.content);
   const isFav = favourites.some((favProduct) => favProduct.id === product.id);
-  const [favorito, setFavorito] = useState(false);
+  //const [favorito, setFavorito] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -30,7 +30,7 @@ const SingleProduct = (props) => {
     scrollToTop();
   };
 
-  const handleFavClick = () => {
+  /* const handleFavClick = () => {
     if (favorito) {
       dispatch(removeFromFavAction(product.id));
       console.log("ho rimosso", product.id, "dai favoriti");
@@ -39,6 +39,18 @@ const SingleProduct = (props) => {
       dispatch(addToFavAction(product.id));
       console.log("ho aggiunto", product.id, "ai favoriti");
       setFavorito(true);
+    }
+  };
+ */
+
+  const handleFavClick = () => {
+    if (isFav) {
+      const indexToRemove = favourites.findIndex(
+        (favProduct) => favProduct.id === product.id
+      );
+      dispatch(removeFromFavAction(indexToRemove));
+    } else {
+      dispatch(addToFavAction(product));
     }
   };
 
@@ -62,19 +74,21 @@ const SingleProduct = (props) => {
             </Col>
             {username !== "lory" ? (
               <Col className="d-flex justify-content-end pt-1">
-                {favorito ? (
-                  <FaHeart
-                    className="w-25"
-                    color="red"
-                    onClick={handleFavClick}
-                  />
-                ) : (
-                  <FaRegHeart
-                    className="w-25"
-                    color="red"
-                    onClick={handleFavClick}
-                  />
-                )}
+                {
+                  /* favorito */ isFav ? (
+                    <FaHeart
+                      className="w-25"
+                      color="red"
+                      onClick={handleFavClick}
+                    />
+                  ) : (
+                    <FaRegHeart
+                      className="w-25"
+                      color="red"
+                      onClick={handleFavClick}
+                    />
+                  )
+                }
               </Col>
             ) : (
               <Col className="d-flex justify-content-end pt-1">

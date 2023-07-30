@@ -157,9 +157,9 @@ export const addToFavAction = (productSelected) => ({
   payload: productSelected,
 });
 
-export const removeFromFavAction = (productId) => ({
+export const removeFromFavAction = (index) => ({
   type: REMOVE_FROM_FAV,
-  payload: productId,
+  payload: index,
 });
 
 export const resetFavouritesAction = () => ({

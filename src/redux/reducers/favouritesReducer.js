@@ -9,7 +9,6 @@ const favouritesReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TO_FAV:
       const productToAdd = action.payload;
-      // Controlla se il prodotto con lo stesso ID è già presente nella lista dei preferiti
       const isProductInFavourites = state.content.some(
         (product) => product.id === productToAdd.id
       );
@@ -28,7 +27,7 @@ const favouritesReducer = (state = initialState, action) => {
       return {
         ...state,
         content: state.content.filter(
-          (product) => product.id !== action.payload
+          (product, index) => index !== action.payload
         ),
       };
 
