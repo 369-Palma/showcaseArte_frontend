@@ -158,14 +158,14 @@ const Register = () => {
           {isMobile ? <LiaHandPointDown /> : <LiaHandPointRight />}
         </Alert>
       ) : (
-        <Col xs={12} className="authForm mx-auto">
+        <Col xs={12} className="authForm mx-auto pt-3">
           <Col className="titolo txt-center">
             <p className="ms-5 ">Create a new account here</p>
           </Col>
           <h4 className="ms-5 mb-3 text-center"> Register </h4>
 
           {/* USERNAME FIELD */}
-          <Form onSubmit={handleSubmit} className="p-3 w-75 mx-auto">
+          <Form onSubmit={handleSubmit} className="px-5 w-75 mx-auto my-5">
             <Form.Group className="mb-3" controlId="formBasicName">
               <Form.Label>
                 Username:

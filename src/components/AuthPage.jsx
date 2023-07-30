@@ -21,7 +21,7 @@ const AuthPage = () => {
   }, [dispatch]);
 
   return (
-    <Container className="authForm flex-column" id="authenticationForm">
+    <Container className="mt-4 authForm flex-column" id="authenticationForm">
       <Row className="w-100">
         <Col xs={12} md={6} className="border border-black">
           <Register />

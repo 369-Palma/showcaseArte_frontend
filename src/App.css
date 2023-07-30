@@ -20,21 +20,8 @@ Link {
 .h1,
 h2 {
   margin-left: auto;
-  margin-top: auto;
+
   text-align: center;
-}
-
-.bottone {
-  border: 1px solid black;
-  background-color: #fcefc0df;
-  border-radius: 15px;
-  width: 70px;
-  height: 45px;
-}
-
-.bottone :hover {
-  border: 1px solid rgb(245, 244, 246);
-  background-color: #fcefc0b7;
 }
 
 .nav-link {
@@ -45,6 +32,18 @@ h2 {
   font-weight: bolder;
 }
 
+.bottone {
+  border: 1px solid black;
+  background-color: #f7f0d7df;
+  border-radius: 15px;
+  width: 70px;
+  height: 45px;
+}
+
+.bottone :hover {
+  background-color: #fcefc01e;
+  border: 1px solid rgb(161, 161, 251);
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

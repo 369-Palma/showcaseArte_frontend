@@ -107,7 +107,7 @@ const Login = () => {
         </p>
         <h4 className="ms-5 mb-3 text-center"> Login </h4>
 
-        <Form onSubmit={handleSubmit} className="px-5 ">
+        <Form onSubmit={handleSubmit} className="px-5 w-75 mx-auto my-5">
           <Form.Group className="mb-3" controlId="formUsername">
             <Form.Label>Username:</Form.Label>
             <Form.Control
