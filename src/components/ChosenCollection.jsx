@@ -5,6 +5,7 @@ import { getByCollectionAction } from "../redux/actions";
 import SingleProduct from "./SingleProduct";
 import { FaHeart } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import "../styles/collection.css";
 
 const ChosenCollection = () => {
   const dispatch = useDispatch();
@@ -28,7 +29,7 @@ const ChosenCollection = () => {
             <Alert className="d-none" />
           )}
           {products?.map((product) => (
-            <Col xs={12} md={6} key={product?.id}>
+            <Col className="stileTesto" xs={12} md={6} key={product?.id}>
               <SingleProduct product={product} />
             </Col>
           ))}

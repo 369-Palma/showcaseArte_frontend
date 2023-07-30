@@ -20,7 +20,8 @@ Link {
 .h1,
 h2 {
   margin-left: auto;
-
+  margin-right: auto;
+  font-family: "Cormorant Garamond", serif;
   text-align: center;
 }
 

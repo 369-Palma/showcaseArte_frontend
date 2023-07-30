@@ -13,6 +13,7 @@ import ChosenCollection from "./components/ChosenCollection";
 import Detail from "./components/Detail";
 import AuthPage from "./components/AuthPage";
 import MyFavs from "./components/MyFavs";
+import Collections from "./components/Collections";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contacts" element={<ContactForm />} />
         <Route path="/collection/:query" element={<ChosenCollection />} />
+        <Route path="/collections" element={<Collections />} />
         <Route path="/details/:id" element={<Detail />} />
         <Route path="/authPage" element={<AuthPage />} />
         <Route path="/favourites" element={<MyFavs />} />
