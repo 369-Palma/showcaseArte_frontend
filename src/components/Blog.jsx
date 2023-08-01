@@ -1,10 +1,23 @@
 import { Container, Row, Col } from "react-bootstrap";
+import { HiOutlinePencilAlt } from "react-icons/hi";
+import { useSelector } from "react-redux";
 
 const Blog = () => {
+  const username = useSelector((state) => state.auth.username);
+
   return (
     <>
       <h2 className="mt-4 mb-5"> What's new? </h2>
       <Container>
+        {username === "lory" ? (
+          <Row>
+            <Col className="d-flex justify-content-end pt-1">
+              <HiOutlinePencilAlt />
+            </Col>
+          </Row>
+        ) : (
+          <Row className="d-none"></Row>
+        )}
         <Row
           xs={11}
           md={9}
