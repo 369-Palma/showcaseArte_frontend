@@ -10,13 +10,13 @@ const About = () => {
           <img
             src={fotoLory}
             alt="foto dell'artista"
-            className="foto d-flex justify-content-center w-100 my-3 px-3 text-center"
+            className="foto d-flex justify-content-center my-3 px-3 text-center w-75 "
           />
         </Col>
         <Col
           xs={12}
           md={6}
-          className="mx-auto ps-xs-5 ps-md-0 py-md-5 w-sx-100 w-md-75"
+          className="mx-auto ps-xs-5 ps-md-0 py-md-5 /* w-sx-100 w-md-75 */"
         >
           <p className="ps-4">
             {" "}
