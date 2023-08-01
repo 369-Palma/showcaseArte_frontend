@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { Container, Col, Row, Button } from "react-bootstrap";
+import { Container, Col, Row, Button, Alert } from "react-bootstrap";
 import { FaTrash } from "react-icons/fa";
 import { removeFromFavAction } from "../redux/actions/index.js";
 import "../styles/favourites.css";
@@ -57,15 +57,26 @@ const MyFavs = () => {
           </Col>
         </Row>
       </Container>
+
       <Row className="mx-auto">
-        <Col className="mx-5 d-flex justify-content-evenly">
-          <Link to="/contacts">
-            <Button className="">Contact the artist</Button>
-          </Link>
-          <Link to="/">
-            <Button>Back to Collections</Button>
-          </Link>
+        <Col>
+          <Alert md={9} className="bgColor text-center mx-3">
+            If you're interest in purchasing some paintings / you want to check
+            disponibility of your favourite paintings / commission a new
+            customized work
+            <br /> Contact the artist.
+          </Alert>
         </Col>
+        <Row>
+          <Col className="mx-5 d-flex justify-content-evenly">
+            <Link to="/contacts">
+              <Button className="">Contact the artist</Button>
+            </Link>
+            <Link to="/">
+              <Button>Back to Collections</Button>
+            </Link>
+          </Col>
+        </Row>
       </Row>
     </>
   );
