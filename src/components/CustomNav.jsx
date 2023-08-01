@@ -2,16 +2,21 @@ import { useState } from "react";
 import { Navbar, Nav, Container, Button, Col, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
-import { logoutAction } from "../redux/actions";
+import { logoutAction, resetFavouritesAction } from "../redux/actions";
+import { useNavigate } from "react-router";
 
 const CustomNav = () => {
   const location = useLocation();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const username = useSelector((state) => state.auth.username);
   const [showLinks, setShowLinks] = useState(false);
 
   const handleLogout = () => {
     dispatch(logoutAction());
+    dispatch(resetFavouritesAction());
+    navigate("/");
   };
   return (
     <Navbar expand="md" className="bg-body-tertiary">
@@ -75,7 +80,10 @@ const CustomNav = () => {
                     MyFav
                   </Link>
                 ) : (
-                  <Link className="d-none" />
+                  /*  <Link className="d-none" /> */
+                  <Link to="/" className="nav-link">
+                    Home
+                  </Link>
                 )}
               </Col>
 
