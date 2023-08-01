@@ -10,7 +10,7 @@ const About = () => {
           <img
             src={fotoLory}
             alt="foto dell'artista"
-            className="foto d-flex justify-content-center my-3 px-3 text-center w-75 "
+            className="foto d-flex align-content-center my-3 mx-auto text-center w-75 "
           />
         </Col>
         <Col
