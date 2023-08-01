@@ -8,7 +8,7 @@ const Blog = () => {
         <Row
           xs={11}
           md={9}
-          className=" px-auto d-flex flex-column border border-info align-content-space-around mx-1"
+          className=" py-3 px-5 d-flex flex-column border border-info align-content-space-around mx-1"
         >
           {" "}
           <h4 className="text-center">New exhibit!</h4>

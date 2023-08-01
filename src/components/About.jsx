@@ -21,7 +21,7 @@ const About = () => {
           <p className="ps-4">
             {" "}
             Hello there! I'm Loretana Iacobelli. <br />I started painting as a
-            hobby but now it has become my greatest passione.
+            hobby but now it has become my greatest passion.
           </p>
         </Col>
       </Row>
