@@ -20,8 +20,14 @@ const About = () => {
         >
           <p className="ps-4">
             {" "}
-            Hello there! I'm Loretana Iacobelli. <br />I started painting as a
-            hobby but now it has become my greatest passion.
+            Loretana Iacobelli is a self-taught artist who lives in Bremen,
+            Germany. <br />
+            She started painting as a child, cultivating and renewing her
+            passion over the decades. <br />
+            Her paintings, which mainly depict seascapes and focus on natural
+            elements such as waves, shells and clouds, are distinguished by the
+            contrasts and the purity of the colours involved. The representation
+            of nature in its pure simplicity is the mission of her art.
           </p>
         </Col>
       </Row>

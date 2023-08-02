@@ -1,4 +1,4 @@
-/* import { Container, Row, Col, Button, Alert } from "react-bootstrap";
+import { Container, Row, Col, Button, Alert, Spinner } from "react-bootstrap";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -8,14 +8,14 @@ import {
   removeFromFavAction,
   addToFavAction,
   getByIdAction,
-  addToCartActionWithThunk,
+  addToCartAction,
 } from "../redux/actions";
 
 import { useParams } from "react-router-dom";
 //import Register from "./Register";
-*/
+
 const Detail = (props) => {
-  /* const idProd = useSelector((state) => state.idProd.idProd);
+  const idProd = useSelector((state) => state.idProd.idProd);
   console.log(idProd);
   const prodObj = useSelector((state) => state.idProd.prodObj);
   const dispatch = useDispatch();
@@ -24,15 +24,16 @@ const Detail = (props) => {
   const favourites = useSelector((state) => state.fav.content);
   const isFav = favourites.some((favProduct) => favProduct.id === prodObj.id);
 
-  const userName = useSelector((state) => state.user.name);
+  const username = useSelector((state) => state.auth.username);
 
   const handleFavClick = () => {
     if (isFav) {
-      dispatch(removeFromFavAction(prodObj.id));
-      console.log("ho rimosso", prodObj.id, "dai favoriti");
+      const indexToRemove = favourites.findIndex(
+        (favProduct) => favProduct.id === prodObj.id
+      );
+      dispatch(removeFromFavAction(indexToRemove));
     } else {
       dispatch(addToFavAction(prodObj));
-      console.log("ho aggiunto", prodObj.id, "ai favoriti");
     }
   };
 
@@ -41,75 +42,83 @@ const Detail = (props) => {
     dispatch(getByIdAction(id));
   }, [id]);
 
-  if (prodObj === null) { */
-  // Puoi mostrare un messaggio di caricamento o qualsiasi altra cosa desideri durante il caricamento dei dati
-  return <></>; /* {/* <p>Loading...</p>; */
-};
-
-/*  return (
-    <Container className="my-3">
-      <Row className="d-flex flex-xs-row my-0">
-        <Col>
-          <img
-            className="w-50"
-            variant="top"
-            src={prodObj?.img}
-            alt={prodObj?.title}
-          />
-        </Col>
-      </Row>
-      <Row className="d-flex space-between mx-0 p-0">
-        <Col>
-          <p className="titoloQuadro">{prodObj?.title}</p>
-        </Col>
-        <Col className="d-flex justify-content-end pt-1">
-          {isFav ? (
-            <FaHeart
-              className="w-25"
-              color="red"
-              onClick={() => handleFavClick()}
-            />
-          ) : (
-            <FaRegHeart
-              className="w-25"
-              color="red"
-              onClick={() => handleFavClick()}
-            />
-          )}
-        </Col>
-      </Row>
-      <Row className="d-flex flex-column">
-        <Col>
-          <p>{prodObj?.price} €</p>
-        </Col>
-        <Col>
-          <p>
-            {" "}
-            Size: {""} {prodObj?.length} x {prodObj?.width}{" "}
-          </p>
-        </Col>
-        <Col>
-          <p> {prodObj?.description} </p>
-        </Col>
-      </Row>
-      {userName ? (
-        <Button
-          className="bottone text-light text-primary fs-6"
-          onClick={() => {
-            dispatch(addToCartActionWithThunk(prodObj));
-          }}
-        >
-          ADD TO CART
-        </Button>
+  return (
+    <div className="my-5">
+      {" "}
+      {/*  {!username ? (
+        <Alert variant="warning" className="mx-xs-2 mx-md-5 text-center">
+          Login <Link to="/authPage">here</Link> to see your favourites list
+        </Alert>
       ) : (
-        <>
-          <Alert variant="warning">
-            Log in to add this product to your cart
-          </Alert>
-        </>
+        <Alert className="d-none" />
+      )} */}
+      {prodObj === null ? (
+        <Spinner animation="border" variant="light" />
+      ) : (
+        <Container className="my-3 mx-auto">
+          <h4 className="titoloQuadro ps-xs-3 ps-md-5 ">{prodObj?.title}</h4>
+          <Row className="d-flex flex-xs-row my-0 w-100">
+            <Col xs={12} md={6}>
+              <Row className="d-flex flex-column my-4 ">
+                <Col className="mx-1" xs={12} md={10}>
+                  <img
+                    className="w-100"
+                    variant="top"
+                    src={prodObj?.img}
+                    alt={prodObj?.title}
+                  />
+                </Col>
+                <Col
+                  xs={12}
+                  md={10}
+                  className="d-flex justify-content-end pt-1"
+                >
+                  {isFav ? (
+                    <FaHeart
+                      className="w-25"
+                      color="red"
+                      onClick={() => handleFavClick()}
+                    />
+                  ) : (
+                    <FaRegHeart
+                      className="w-25"
+                      color="red"
+                      onClick={() => handleFavClick()}
+                    />
+                  )}
+                </Col>
+              </Row>
+            </Col>
+            <Col xs={12} md={6} className="my-3">
+              <Row className="d-flex flex-column align-content-space-around">
+                <Col xs={12} md={6}>
+                  <p>
+                    Price: {""} {prodObj?.price} €
+                  </p>
+                </Col>
+                <Col xs={12} md={6}>
+                  <p>
+                    {" "}
+                    Size: {""} {prodObj?.length} x {prodObj?.width}{" "}
+                  </p>
+                </Col>
+                <Col xs={12} md={6}>
+                  <p> {prodObj?.description} </p>
+                </Col>
+              </Row>
+            </Col>
+          </Row>
+        </Container>
       )}
-    </Container>
+      {!username ? (
+        <Alert variant="warning" className="mx-xs-2 mx-md-5 text-center">
+          Login <Link to="/authPage">here</Link> to see your favourites list
+        </Alert>
+      ) : (
+        <Alert className="d-none" />
+      )}
+    </div>
   );
-};*/
+};
 
 export default Detail;

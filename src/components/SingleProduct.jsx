@@ -26,22 +26,9 @@ const SingleProduct = (props) => {
 
   const handleImageClick = (idProduct) => {
     dispatch(setIdAction(idProduct));
-    // navigate("/details/" + idProduct.toString());
+    navigate("/details/" + idProduct.toString());
     scrollToTop();
   };
-
-  /* const handleFavClick = () => {
-    if (favorito) {
-      dispatch(removeFromFavAction(product.id));
-      console.log("ho rimosso", product.id, "dai favoriti");
-      setFavorito(false);
-    } else {
-      dispatch(addToFavAction(product.id));
-      console.log("ho aggiunto", product.id, "ai favoriti");
-      setFavorito(true);
-    }
-  };
- */
 
   const handleFavClick = () => {
     if (isFav) {
@@ -101,7 +88,7 @@ const SingleProduct = (props) => {
             <p>
               Size: {""} {product?.length} x {product?.width}
             </p>
-            <p> {product?.description} </p>
+            {/*  <p> {product?.description} </p> */}
           </Col>
         </Row>
       </Container>

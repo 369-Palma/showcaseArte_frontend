@@ -81,9 +81,7 @@ const CustomNav = () => {
                   </Link>
                 ) : (
                   /*  <Link className="d-none" /> */
-                  <Link to="/" className="nav-link">
-                    Home
-                  </Link>
+                  <Link to="/" className="nav-link"></Link>
                 )}
               </Col>
 

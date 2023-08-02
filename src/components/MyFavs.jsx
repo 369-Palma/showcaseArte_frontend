@@ -62,9 +62,8 @@ const MyFavs = () => {
         <Col>
           <Alert md={9} className="bgColor text-center mx-3">
             If you're interest in purchasing some paintings / you want to check
-            disponibility of your favourite paintings / commission a new
-            customized work
-            <br /> Contact the artist.
+            availability of your favourite paintings / commission a painting,
+            <br /> contact the artist.
           </Alert>
         </Col>
         <Row>
