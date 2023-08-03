@@ -39,6 +39,12 @@ export const GET_PRODUCT_LOADING_ON = "GET_PRODUCT_LOADING_ON";
 export const GET_PRODUCT_LOADING_OFF = "GET_PRODUCT_LOADING_OFF";
 export const RESET_FAVOURITES = "RESET_FAVOURITES";
 
+export const GET_NEWS = "GET_NEWS";
+export const UPDATE_NEWS = "UPDATE_NEWS";
+export const GET_NEWS_ERROR = "GET_NEWS_ERROR";
+export const GET_NEWS_LOADING_ON = "GET_NEWS_LOADING_ON";
+export const GET_NEWS_LOADING_OFF = "GET_NEWS_LOADING_OFF";
+
 export function scrollToTop() {
   window.scrollTo(0, 0);
 }
@@ -46,6 +52,7 @@ export function scrollToTop() {
 //COSTANTI
 //const urlBase = process.env.baseURL;
 const baseline = "http://localhost:8086/api/products";
+const baselineNews = "http://localhost:8086/api/news";
 
 export const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9_]{3,23}$/;
 export const PWD_REGEX =
@@ -310,8 +317,45 @@ export const getByIdAction = (id) => {
   };
 };
 
+// * Fetch per news/ blog
+
+export const getNewsAction = () => {
+  return async (dispatch, getState) => {
+    try {
+      dispatch({
+        type: GET_NEWS_LOADING_ON,
+      });
+
+      let resp = await fetch(baselineNews);
+      if (resp.ok) {
+        let fetchedNews = await resp.json();
+        console.log(fetchedNews);
+        dispatch({
+          type: GET_NEWS,
+          payload: fetchedNews,
+        });
+      } else {
+        dispatch({
+          type: GET_NEWS_ERROR,
+          payload: "Resp not ok",
+        });
+      }
+    } catch (error) {
+      console.log(error);
+      dispatch({
+        type: GET_NEWS_ERROR,
+        payload: error.message,
+      });
+    } finally {
+      dispatch({
+        type: GET_NEWS_LOADING_OFF,
+      });
+    }
+  };
+};
+
 //fetch per registrazione
-export const registerUser = () => async (dispatch, getState) => {
+/* export const registerUser = () => async (dispatch, getState) => {
   const { auth } = getState();
   const { username, email, password, matchPwd } = auth;
   const [success, setSuccess] = useState(false);
@@ -336,7 +380,7 @@ export const registerUser = () => async (dispatch, getState) => {
       }),
     });
 
-    // Assuming the server returns JSON data in the response
+   
     const data = await response.json();
     console.log(data);
 
@@ -353,4 +397,4 @@ export const registerUser = () => async (dispatch, getState) => {
     }
     errRef.current?.focus();
   }
-};
+}; */

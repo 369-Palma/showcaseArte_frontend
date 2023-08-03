@@ -1,6 +1,7 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { HiOutlinePencilAlt } from "react-icons/hi";
 import { useSelector } from "react-redux";
+import News from "./News";
 
 const Blog = () => {
   const username = useSelector((state) => state.auth.username);
@@ -9,6 +10,14 @@ const Blog = () => {
     <>
       <h2 className="mt-4 mb-5"> What's new? </h2>
       <Container>
+        <Row>
+          <Col xs={12} md={8} className="mx-auto">
+            <News />
+          </Col>
+        </Row>
+      </Container>
+
+      {/* <Container>
         {username === "lory" ? (
           <Row>
             <Col className="d-flex justify-content-end pt-1">
@@ -34,7 +43,7 @@ const Blog = () => {
           <Col md={6}>Bari - via Putignani 79</Col>
           <Col md={6}>15/10/2023</Col>
         </Row>
-      </Container>
+      </Container> */}
     </>
   );
 };

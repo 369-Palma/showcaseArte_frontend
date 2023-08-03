@@ -15,6 +15,7 @@ import favouritesReducer from "../reducers/favouritesReducer";
 import queryReducer from "../reducers/queryReducer";
 import idReducer from "../reducers/idReducer";
 import authReducer from "../reducers/authReducer";
+import newsReducer from "../reducers/newsReducer";
 
 /* const favTransform = createTransform(
   (inboundState, key) => {
@@ -47,6 +48,7 @@ const rootReducer = combineReducers({
   fav: favouritesReducer,
   query: queryReducer,
   idProd: idReducer,
+  news: newsReducer,
 });
 
 const persistConfig = {

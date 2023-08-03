@@ -29,7 +29,9 @@ h2 {
   font-family: "Cormorant Garamond", serif;
   text-align: center;
 }
-
+.newsBox {
+  border: 1px solid #d3eef5 !important;
+}
 .nav-link {
   font-weight: 400px;
 }
