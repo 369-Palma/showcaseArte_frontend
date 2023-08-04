@@ -18,6 +18,8 @@ import AuthPage from "./components/AuthPage";
 import MyFavs from "./components/MyFavs";
 import Collections from "./components/Collections";
 import UpdateBlog from "./components/UpdateBlog";
+import UpdateProduct from "./components/UpdateProduct";
+import NewProduct from "./components/NewProduct";
 
 function App() {
   return (
@@ -43,6 +45,8 @@ function App() {
         <Route path="/authPage" element={<AuthPage />} />
         <Route path="/favourites" element={<MyFavs />} />
         <Route path="/formBlog/:postId" element={<UpdateBlog />} />
+        <Route path="/editProduct/:prodId" element={<UpdateProduct />} />
+        <Route path="/addProduct" element={<NewProduct />} />
       </Routes>
       <Footer />
     </BrowserRouter>

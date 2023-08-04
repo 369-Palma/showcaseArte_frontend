@@ -37,6 +37,8 @@ export const GET_PRODUCT = "GET_PRODUCT";
 export const GET_PRODUCT_ERROR = "GET_PRODUCT_ERROR";
 export const GET_PRODUCT_LOADING_ON = "GET_PRODUCT_LOADING_ON";
 export const GET_PRODUCT_LOADING_OFF = "GET_PRODUCT_LOADING_OFF";
+export const UPDATE_SINGLE_PRODUCT = "UPDATE_SINGLE_PRODUCT";
+export const ADD_SINGLE_PRODUCT = "ADD_SINGLE_PRODUCT";
 export const RESET_FAVOURITES = "RESET_FAVOURITES";
 
 export const GET_NEWS = "GET_NEWS";
@@ -394,6 +396,85 @@ export const updateSingleNewsAction = (updatedNews) => {
     } finally {
       dispatch({
         type: GET_NEWS_LOADING_OFF,
+      });
+    }
+  };
+};
+
+//fetch PUT per modificare prodotto
+export const updateSingleProductAction = (updatedProd) => {
+  return async (dispatch) => {
+    try {
+      const res = await fetch(baseline, {
+        method: "PUT",
+        body: JSON.stringify(updatedProd),
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsb3J5QGhvdG1haWwuaXQiLCJpYXQiOjE2OTEwNzg0OTEsImV4cCI6MTY5ODk2Nzg5MX0.kobtTtYF7qP73m8w6pAU8ejaI9AJ7xee088lklUCyGY",
+          /* Authorization: process.env.REACT_APP_API_KEY, */
+        },
+      });
+      if (res.ok) {
+        const dataProduct = await res.json();
+
+        dispatch({
+          type: UPDATE_SINGLE_PRODUCT,
+          payload: dataProduct,
+        });
+      } else {
+        console.log("Error fetching product!");
+      }
+    } catch (error) {
+      console.log(error);
+      dispatch({
+        type: GET_PRODUCT_ERROR,
+        payload: error.message,
+      });
+    } finally {
+      dispatch({
+        type: GET_PRODUCT_LOADING_OFF,
+      });
+    }
+  };
+};
+
+//fetch POST per aggiungere prodotto
+export const addProductAction = (newProd) => {
+  return async (dispatch) => {
+    try {
+      const res = await fetch(baseline, {
+        method: "POST",
+        body: newProd,
+        /* body: JSON.stringify(newProd), */
+        headers: {
+          Accept: "application/json",
+          // "Content-Type": "application/json",
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsb3J5QGhvdG1haWwuaXQiLCJpYXQiOjE2OTEwNzg0OTEsImV4cCI6MTY5ODk2Nzg5MX0.kobtTtYF7qP73m8w6pAU8ejaI9AJ7xee088lklUCyGY",
+          /* Authorization: process.env.REACT_APP_API_KEY, */
+        },
+      });
+      if (res.ok) {
+        const dataProduct = await res.json();
+
+        dispatch({
+          type: ADD_SINGLE_PRODUCT,
+          payload: dataProduct,
+        });
+      } else {
+        console.log("Error fetching product!");
+      }
+    } catch (error) {
+      console.log(error);
+      dispatch({
+        type: GET_PRODUCT_ERROR,
+        payload: error.message,
+      });
+    } finally {
+      dispatch({
+        type: GET_PRODUCT_LOADING_OFF,
       });
     }
   };

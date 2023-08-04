@@ -3,6 +3,8 @@ import {
   GET_PRODUCTS_ERROR,
   GET_PRODUCTS_LOADING_OFF,
   GET_PRODUCTS_LOADING_ON,
+  UPDATE_SINGLE_PRODUCT,
+  ADD_SINGLE_PRODUCT,
 } from "../actions";
 
 const initialState = {
@@ -20,6 +22,15 @@ const productsReducer = (state = initialState, action) => {
         products: action.payload,
       };
 
+    case UPDATE_SINGLE_PRODUCT:
+      const updatedProd = action.payload;
+      console.log("action UPDATE_SINGLE_PRODUCT:", action.payload);
+      return {
+        ...state,
+        products: state.products.map((prodItem) =>
+          prodItem.id === updatedProd.id ? updatedProd : prodItem
+        ),
+      };
     case GET_PRODUCTS_ERROR:
       return {
         ...state,
@@ -37,6 +48,12 @@ const productsReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: false,
+      };
+
+    case ADD_SINGLE_PRODUCT:
+      return {
+        ...state,
+        products: [...state.products, action.payload],
       };
 
     default:

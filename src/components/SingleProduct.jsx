@@ -13,6 +13,7 @@ import "../styles/collection.css";
 import { FaRegHeart, FaHeart /* FaHeartCircle */ } from "react-icons/fa";
 import { HiOutlinePencilAlt } from "react-icons/hi";
 import { useEffect, useState } from "react";
+import "../styles/news.css";
 
 const SingleProduct = (props) => {
   const navigate = useNavigate();
@@ -23,6 +24,12 @@ const SingleProduct = (props) => {
   //const [favorito, setFavorito] = useState(false);
 
   const dispatch = useDispatch();
+
+  const handleEditClick = (productId) => {
+    console.log("Edit icon clicked for product ID:", productId);
+    console.log("Edit icon clicked for product:", product);
+    navigate(`/editProduct/${productId}`);
+  };
 
   const handleImageClick = (idProduct) => {
     dispatch(setIdAction(idProduct));
@@ -79,7 +86,12 @@ const SingleProduct = (props) => {
               </Col>
             ) : (
               <Col className="d-flex justify-content-end pt-1">
-                <HiOutlinePencilAlt />
+                <HiOutlinePencilAlt
+                  onClick={() =>
+                    handleEditClick(product.id, product.collection)
+                  }
+                  className="matita w-md-50"
+                />
               </Col>
             )}
           </Row>

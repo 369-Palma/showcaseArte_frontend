@@ -68,25 +68,29 @@ const Detail = (props) => {
                     alt={prodObj?.title}
                   />
                 </Col>
-                <Col
-                  xs={12}
-                  md={10}
-                  className="d-flex justify-content-end pt-1"
-                >
-                  {isFav ? (
-                    <FaHeart
-                      className="w-25"
-                      color="red"
-                      onClick={() => handleFavClick()}
-                    />
-                  ) : (
-                    <FaRegHeart
-                      className="w-25"
-                      color="red"
-                      onClick={() => handleFavClick()}
-                    />
-                  )}
-                </Col>
+                {username !== "lory" ? (
+                  <Col
+                    xs={12}
+                    md={10}
+                    className="d-flex justify-content-end pt-1"
+                  >
+                    {isFav ? (
+                      <FaHeart
+                        className="w-25"
+                        color="red"
+                        onClick={() => handleFavClick()}
+                      />
+                    ) : (
+                      <FaRegHeart
+                        className="w-25"
+                        color="red"
+                        onClick={() => handleFavClick()}
+                      />
+                    )}
+                  </Col>
+                ) : (
+                  <Col className="d-none"></Col>
+                )}
               </Row>
             </Col>
             <Col xs={12} md={6} className="my-3">
@@ -99,7 +103,13 @@ const Detail = (props) => {
                 <Col xs={12} md={6}>
                   <p>
                     {" "}
-                    Size: {""} {prodObj?.length} x {prodObj?.width}{" "}
+                    Size: {""} {prodObj?.length} x {prodObj?.width} cm
+                  </p>
+                </Col>
+                <Col xs={12} md={6}>
+                  <p>
+                    {" "}
+                    Available: {""} {prodObj?.available}
                   </p>
                 </Col>
                 <Col xs={12} md={6}>
