@@ -41,6 +41,7 @@ export const RESET_FAVOURITES = "RESET_FAVOURITES";
 
 export const GET_NEWS = "GET_NEWS";
 export const UPDATE_NEWS = "UPDATE_NEWS";
+export const UPDATE_SINGLE_NEWS = "UPDATE_SINGLE_NEWS";
 export const GET_NEWS_ERROR = "GET_NEWS_ERROR";
 export const GET_NEWS_LOADING_ON = "GET_NEWS_LOADING_ON";
 export const GET_NEWS_LOADING_OFF = "GET_NEWS_LOADING_OFF";
@@ -172,6 +173,12 @@ export const removeFromFavAction = (index) => ({
 export const resetFavouritesAction = () => ({
   type: RESET_FAVOURITES,
 });
+
+//AZIONI PER NEWS
+/* export const updateSingleNewsAction = (updatedNews) => ({
+  type: UPDATE_SINGLE_NEWS,
+  payload: updatedNews,
+}); */
 
 // FETCH
 
@@ -354,47 +361,40 @@ export const getNewsAction = () => {
   };
 };
 
-//fetch per registrazione
-/* export const registerUser = () => async (dispatch, getState) => {
-  const { auth } = getState();
-  const { username, email, password, matchPwd } = auth;
-  const [success, setSuccess] = useState(false);
-  const [errMsg, setErrMsg] = useState("");
-  const errRef = useRef();
+export const updateSingleNewsAction = (updatedNews) => {
+  return async (dispatch) => {
+    try {
+      const res = await fetch(baselineNews, {
+        method: "PUT",
+        body: JSON.stringify(updatedNews),
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsb3J5QGhvdG1haWwuaXQiLCJpYXQiOjE2OTEwNzg0OTEsImV4cCI6MTY5ODk2Nzg5MX0.kobtTtYF7qP73m8w6pAU8ejaI9AJ7xee088lklUCyGY",
+          /* Authorization: process.env.REACT_APP_API_KEY, */
+        },
+      });
+      if (res.ok) {
+        const dataNews = await res.json();
 
-  if (!username || !email || !password || !matchPwd) {
-    dispatch(setErrMsg("Please fill in all the required fields"));
-    return;
-  }
-
-  try {
-    const response = await fetch(registerUrl, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        username: username,
-        email: email,
-        password: password,
-      }),
-    });
-
-   
-    const data = await response.json();
-    console.log(data);
-
-    dispatch(setSuccess(true));
-    dispatch(setUsername(""));
-    dispatch(setPassword(""));
-    dispatch(setEmail(""));
-    dispatch(setMatchPassword(""));
-  } catch (error) {
-    if (error.response?.status === 409) {
-      dispatch(setErrMsg("C'è stato un errore nel contattare il server"));
-    } else if (error?.response) {
-      dispatch(setErrMsg("Registrazione fallita!"));
+        dispatch({
+          type: UPDATE_SINGLE_NEWS,
+          payload: dataNews,
+        });
+      } else {
+        console.log("Error fetching news!");
+      }
+    } catch (error) {
+      console.log(error);
+      dispatch({
+        type: GET_NEWS_ERROR,
+        payload: error.message,
+      });
+    } finally {
+      dispatch({
+        type: GET_NEWS_LOADING_OFF,
+      });
     }
-    errRef.current?.focus();
-  }
-}; */
+  };
+};
