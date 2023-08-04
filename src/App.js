@@ -17,6 +17,7 @@ import Detail from "./components/Detail";
 import AuthPage from "./components/AuthPage";
 import MyFavs from "./components/MyFavs";
 import Collections from "./components/Collections";
+import UpdateBlog from "./components/UpdateBlog";
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
         <Route path="/details/:id" element={<Detail />} />
         <Route path="/authPage" element={<AuthPage />} />
         <Route path="/favourites" element={<MyFavs />} />
+        <Route path="/formBlog/:postId" element={<UpdateBlog />} />
       </Routes>
       <Footer />
     </BrowserRouter>
