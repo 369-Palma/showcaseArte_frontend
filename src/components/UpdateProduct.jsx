@@ -1,24 +1,27 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { Form, Button, Row, Col } from "react-bootstrap";
 import { updateSingleProductAction } from "../redux/actions/index";
 
 const UpdateProduct = () => {
   const dispatch = useDispatch();
   const { prodId } = useParams();
+  const location = useLocation();
+  const decodedImg = decodeURIComponent(location.state.img);
   const navigate = useNavigate();
 
   const [updatedProd, setUpdatedProd] = useState({
     id: prodId,
     title: "",
-    price: null,
-    length: null,
-    width: null,
+    price: undefined,
+    length: undefined,
+    width: undefined,
     description: "",
+    collection: undefined,
+    img: decodedImg,
+    client: null,
     available: true,
-
-    img: "",
   });
 
   const handleSubmit = async (e) => {
@@ -105,15 +108,20 @@ const UpdateProduct = () => {
             />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formDescription">
-            <Form.Label>image url</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Insert here the image url"
-              name="img"
-              value={updatedProd.img}
+          {/* COLLECTION */}
+          <Form.Group className="mb-3" controlId="formCollection">
+            <Form.Label>Collection</Form.Label>
+            <Form.Select
+              name="collection"
+              value={updatedProd.collection}
               onChange={handleChange}
-            />
+            >
+              <option value="">Select a collection</option>
+              <option value="Flowers">Flowers</option>
+              <option value="Oysters">Oysters</option>
+              <option value="Seascapes">Seascapes</option>
+              <option value="Custom">Custom</option>
+            </Form.Select>
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formCheckbox">

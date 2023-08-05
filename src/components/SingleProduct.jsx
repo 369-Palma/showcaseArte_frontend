@@ -6,13 +6,11 @@ import {
   setIdAction,
   addToFavAction,
   removeFromFavAction,
-  resetFavouritesAction,
   scrollToTop,
 } from "../redux/actions";
 import "../styles/collection.css";
-import { FaRegHeart, FaHeart /* FaHeartCircle */ } from "react-icons/fa";
+import { FaRegHeart, FaHeart } from "react-icons/fa";
 import { HiOutlinePencilAlt } from "react-icons/hi";
-import { useEffect, useState } from "react";
 import "../styles/news.css";
 
 const SingleProduct = (props) => {
@@ -21,14 +19,13 @@ const SingleProduct = (props) => {
   const username = useSelector((state) => state.auth.username);
   const favourites = useSelector((state) => state.fav.content);
   const isFav = favourites.some((favProduct) => favProduct.id === product.id);
-  //const [favorito, setFavorito] = useState(false);
 
   const dispatch = useDispatch();
 
   const handleEditClick = (productId) => {
-    console.log("Edit icon clicked for product ID:", productId);
-    console.log("Edit icon clicked for product:", product);
-    navigate(`/editProduct/${productId}`);
+    navigate(`/editProduct/${productId}`, {
+      state: { img: encodeURIComponent(product.img) },
+    });
   };
 
   const handleImageClick = (idProduct) => {

@@ -31,7 +31,7 @@ const ChosenCollection = () => {
         <Row className="justify-content-center">
           <h2 className="mx-auto my-5 "> {query.query} Collection</h2>
           {!username ? (
-            <Alert variant="warning">
+            <Alert variant="warning" className="text-center">
               Login <Link to="/authPage">here</Link> to see your favourites list
             </Alert>
           ) : (

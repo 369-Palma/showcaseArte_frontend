@@ -18,7 +18,7 @@ const NewProduct = () => {
     description: "",
     collection: undefined,
     img: undefined,
-    client: undefined,
+    client: null,
     available: true,
   });
 
