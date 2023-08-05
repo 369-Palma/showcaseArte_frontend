@@ -32,7 +32,7 @@ const Collections = (props) => {
 
     {
       collection: "Oysters",
-      product: findProductByTitle("Cozza pelosa"),
+      product: findProductByTitle("Oyster Artistry"),
     },
 
     {
@@ -42,7 +42,7 @@ const Collections = (props) => {
 
     {
       collection: "Custom",
-      product: findProductByTitle("Ho esaurito le idee"),
+      product: findProductByTitle("Mediterranean landscape"),
     },
   ];
 

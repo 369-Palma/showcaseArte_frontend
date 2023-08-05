@@ -33,6 +33,7 @@ const NewProduct = () => {
     formData.append("description", newProd.description);
     formData.append("collection", newProd.collection);
     formData.append("img", newProd.img);
+    formData.append("client", newProd.client);
     formData.append("available", newProd.available);
 
     dispatch(addProductAction(formData));

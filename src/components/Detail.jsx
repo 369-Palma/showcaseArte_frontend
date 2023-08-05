@@ -1,14 +1,14 @@
-import { Container, Row, Col, Button, Alert, Spinner } from "react-bootstrap";
+import { Container, Row, Col, Alert, Spinner } from "react-bootstrap";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
-import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { HiOutlinePencilAlt } from "react-icons/hi";
 import "../styles/collection.css";
 import {
   removeFromFavAction,
   addToFavAction,
   getByIdAction,
-  addToCartAction,
 } from "../redux/actions";
 
 import { useParams } from "react-router-dom";
@@ -19,6 +19,7 @@ const Detail = (props) => {
   console.log(idProd);
   const prodObj = useSelector((state) => state.idProd.prodObj);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { id } = useParams();
 
   const favourites = useSelector((state) => state.fav.content);
@@ -42,16 +43,25 @@ const Detail = (props) => {
     dispatch(getByIdAction(id));
   }, [id]);
 
+  const handleEditClick = (productId) => {
+    navigate(`/editProduct/${productId}`, {
+      state: {
+        img: encodeURIComponent(prodObj.img),
+        title: prodObj.title,
+        price: prodObj.price,
+        length: prodObj.length,
+        width: prodObj.width,
+        description: prodObj.description,
+        collection: prodObj.collection,
+        client: prodObj.client,
+        available: prodObj.available,
+      },
+    });
+  };
+
   return (
     <div className="my-5">
       {" "}
-      {/*  {!username ? (
-        <Alert variant="warning" className="mx-xs-2 mx-md-5 text-center">
-          Login <Link to="/authPage">here</Link> to see your favourites list
-        </Alert>
-      ) : (
-        <Alert className="d-none" />
-      )} */}
       {prodObj === null ? (
         <Spinner animation="border" variant="light" />
       ) : (
@@ -89,7 +99,14 @@ const Detail = (props) => {
                     )}
                   </Col>
                 ) : (
-                  <Col className="d-none"></Col>
+                  <Col className="d-flex justify-content-end pt-1">
+                    <HiOutlinePencilAlt
+                      onClick={() =>
+                        handleEditClick(prodObj.id, prodObj.collection)
+                      }
+                      className="matita w-md-50"
+                    />
+                  </Col>
                 )}
               </Row>
             </Col>
