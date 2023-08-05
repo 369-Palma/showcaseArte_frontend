@@ -99,7 +99,7 @@ const Detail = (props) => {
                     )}
                   </Col>
                 ) : (
-                  <Col className="d-flex justify-content-end pt-1">
+                  <Col md={10} className="d-flex justify-content-end pt-1">
                     <HiOutlinePencilAlt
                       onClick={() =>
                         handleEditClick(prodObj.id, prodObj.collection)

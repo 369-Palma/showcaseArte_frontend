@@ -162,7 +162,7 @@ const UpdateProduct = () => {
             variant="primary"
             type="submit"
           >
-            SALVA MODIFICHE
+            SAVE CHANGES
           </Button>
         </Form>
       </Col>

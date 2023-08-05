@@ -13,11 +13,11 @@
 .matita {
   margin-top: 10px;
   margin-right: 10px;
-  color: #a6bac0;
+  font-size: large;
+  color: #555555;
 }
 
 .matita :hover {
-  color: #555555;
-  font-size: large;
-  transform: scale(1);
+  color: #a6bac0;
+  font-weight: bold;
 }

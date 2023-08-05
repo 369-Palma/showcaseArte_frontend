@@ -49,11 +49,11 @@ const UpdateBlog = () => {
           className="p-5 w-75 mx-auto my-5 border border-info "
         >
           <Form.Group className="mb-3" controlId="formTitle">
-            <Form.Label>Titolo:</Form.Label>
+            <Form.Label>Title:</Form.Label>
             <Form.Control
               type="text"
               required
-              placeholder="Titolo"
+              placeholder="Title"
               autoComplete="off"
               name="title"
               value={updatedNews.title}
@@ -62,11 +62,11 @@ const UpdateBlog = () => {
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formDove">
-            <Form.Label>Dove</Form.Label>
+            <Form.Label>Where</Form.Label>
             <Form.Control
               type="text"
               required
-              placeholder="Luogo"
+              placeholder="Address"
               autoComplete="off"
               name="dove"
               value={updatedNews.dove}
@@ -75,11 +75,11 @@ const UpdateBlog = () => {
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formQuando">
-            <Form.Label>Quando</Form.Label>
+            <Form.Label>When</Form.Label>
             <Form.Control
               type="date"
               required
-              placeholder="Quando"
+              placeholder="When"
               autoComplete="off"
               name="quando"
               value={updatedNews.quando || ""}
@@ -88,11 +88,11 @@ const UpdateBlog = () => {
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formDescription">
-            <Form.Label>Descrizione</Form.Label>
+            <Form.Label>Description</Form.Label>
             <Form.Control
               as="textarea"
               required
-              placeholder="Descrizione"
+              placeholder="Description"
               autoComplete="off"
               name="description"
               value={updatedNews.description}
@@ -106,7 +106,7 @@ const UpdateBlog = () => {
             variant="primary"
             type="submit"
           >
-            SALVA MODIFICHE
+            SAVE CHANGES
           </Button>
         </Form>
       </Col>

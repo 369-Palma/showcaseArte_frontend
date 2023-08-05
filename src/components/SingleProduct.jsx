@@ -75,21 +75,19 @@ const SingleProduct = (props) => {
             </Col>
             {username !== "lory" ? (
               <Col className="d-flex justify-content-end pt-1">
-                {
-                  /* favorito */ isFav ? (
-                    <FaHeart
-                      className="w-25"
-                      color="red"
-                      onClick={handleFavClick}
-                    />
-                  ) : (
-                    <FaRegHeart
-                      className="w-25"
-                      color="red"
-                      onClick={handleFavClick}
-                    />
-                  )
-                }
+                {isFav ? (
+                  <FaHeart
+                    className="w-25"
+                    color="red"
+                    onClick={handleFavClick}
+                  />
+                ) : (
+                  <FaRegHeart
+                    className="w-25"
+                    color="red"
+                    onClick={handleFavClick}
+                  />
+                )}
               </Col>
             ) : (
               <Col className="d-flex justify-content-end pt-1">

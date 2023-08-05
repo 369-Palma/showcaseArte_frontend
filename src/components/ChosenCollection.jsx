@@ -6,7 +6,7 @@ import SingleProduct from "./SingleProduct";
 import { FaHeart } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import "../styles/collection.css";
-import { FaPlus } from "react-icons/fa";
+//import { FaPlus } from "react-icons/fa";
 
 const ChosenCollection = () => {
   const dispatch = useDispatch();
@@ -14,16 +14,16 @@ const ChosenCollection = () => {
   const products = useSelector((state) => state.products.products);
   const username = useSelector((state) => state.auth.username);
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(getByCollectionAction(query.query));
   }, [query]);
 
-  const handleAddClick = (productId) => {
+  /*  const handleAddClick = (productId) => {
     console.log("Edit icon clicked for post ID:", productId);
     navigate(`/addProduct`);
-  };
+  }; */
 
   return (
     <>
@@ -36,7 +36,7 @@ const ChosenCollection = () => {
             </Alert>
           ) : (
             <>
-              {username === "lory" ? (
+              {/*  {username === "lory" ? (
                 <Row>
                   {" "}
                   <Col
@@ -48,7 +48,7 @@ const ChosenCollection = () => {
                 </Row>
               ) : (
                 <Col className="d-none"></Col>
-              )}
+              )} */}
               <Alert className="d-none" />
             </>
           )}
