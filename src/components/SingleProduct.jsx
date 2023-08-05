@@ -24,7 +24,17 @@ const SingleProduct = (props) => {
 
   const handleEditClick = (productId) => {
     navigate(`/editProduct/${productId}`, {
-      state: { img: encodeURIComponent(product.img) },
+      state: {
+        img: encodeURIComponent(product.img),
+        title: product.title,
+        price: product.price,
+        length: product.length,
+        width: product.width,
+        description: product.description,
+        collection: product.collection,
+        client: product.client,
+        available: product.available,
+      },
     });
   };
 

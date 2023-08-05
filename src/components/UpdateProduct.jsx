@@ -9,9 +9,31 @@ const UpdateProduct = () => {
   const { prodId } = useParams();
   const location = useLocation();
   const decodedImg = decodeURIComponent(location.state.img);
+  const title = location.state.title;
+  const price = location.state.price;
+  const length = location.state.length;
+  const width = location.state.width;
+  const description = location.state.description;
+  const collection = location.state.collection;
+  const client = location.state.client;
+  const available = location.state.available;
+
   const navigate = useNavigate();
 
   const [updatedProd, setUpdatedProd] = useState({
+    id: prodId,
+    title: title,
+    price: price,
+    length: length,
+    width: width,
+    description: description,
+    collection: collection,
+    img: decodedImg,
+    client: client,
+    available: available,
+  });
+
+  /* const [updatedProd, setUpdatedProd] = useState({
     id: prodId,
     title: "",
     price: undefined,
@@ -22,7 +44,7 @@ const UpdateProduct = () => {
     img: decodedImg,
     client: null,
     available: true,
-  });
+  }); */
 
   const handleSubmit = async (e) => {
     console.log("updatedNews:", updatedProd);
