@@ -21,11 +21,15 @@ function Footer() {
         </div>
 
         <div>
-          <Link to="#" className="me-4 text-reset">
+          <Link
+            to="https://www.facebook.com/loretana.iacobelli"
+            target="_blank"
+            className="me-4 text-reset"
+          >
             <FontAwesomeIcon icon={faFacebookF} />
           </Link>
           <Link
-            to="mailto:palmaiacobelli92@gmail.com"
+            to="mailto:loretana.iacobelli@gmail.com"
             target="_blank"
             className="me-4 text-reset"
           >
