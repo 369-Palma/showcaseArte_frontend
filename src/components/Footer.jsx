@@ -43,84 +43,37 @@ function Footer() {
       {/* Section: Social media */}
 
       {/* Section: Links */}
-      <section className="">
-        <Container className="text-center text-md-start mt-5">
-          <Row className="mt-3">
-            {/* <Col md={2} lg={2} xl={2} className="mx-auto mb-4">
-              <h6 className="text-uppercase fw-bold mb-4">Prodotti</h6>
-              <p>
-                <Link to="#" className="text-reset">
-                  Pacchetti vacanza
-                </Link>
-              </p>
-              <p>
-                <Link to="#" className="text-reset">
-                  Attività ed eventi
-                </Link>
-              </p>
-              <p>
-                <Link to="#" className="text-reset">
-                  Gift cards
-                </Link>
-              </p>
-              <p>
-                <Link to="#" className="text-reset">
-                  Attrezzature speciali
-                </Link>
-              </p>
-            </Col>
 
-            <Col md={3} lg={2} xl={2} className="mx-auto mb-4">
-              <h6 className="text-uppercase fw-bold mb-4">Link utili</h6>
-              <p>
-                <Link to="#" className="text-reset">
-                  Prezzi
-                </Link>
-              </p>
-              <p>
-                <Link to="#" className="text-reset">
-                  Settings
-                </Link>
-              </p>
-              <p>
-                <Link to="#" className="text-reset">
-                  Ordini
-                </Link>
-              </p>
-              <p>
-                <Link to="#" className="text-reset">
-                  Help
-                </Link>
-              </p>
-            </Col>
-            {/* Section: Links */}
-
-            <Col md={4} lg={3} xl={3} className="mx-auto mb-md-0 mb-4">
-              <h6 className="text-uppercase fw-bold mb-4">Contact me</h6>
-              <p>
-                <FontAwesomeIcon icon={faHome} className="me-3" /> 28201 Bremen,
-                Germany
-              </p>
-              <p>
-                <FontAwesomeIcon icon={faEnvelope} className="me-3" />
-                loretana.iacobelli@gmail.com
-              </p>
-              <p>
-                <FontAwesomeIcon icon={faPhone} className="me-3" /> + 49 1575
-                1915 364
-              </p>
-            </Col>
-          </Row>
-
-          <Row>
-            <Col className=" col-12 text-xs-center text-lg-left mb-2 mt-2 copyright">
-              <small style={{ fontStyle: "italic" }}>
-                Loretana Iacobelli &copy; {new Date().getFullYear()}
-              </small>
-            </Col>
-          </Row>
-        </Container>
-      </section>
+      <Container className="py-3">
+        <Row className="d-flex flex-md-row flex-column justify-md-content-between text-center text-md-start">
+          <Col xs={12} md={2} className="my-auto">
+            <h6 className="text-uppercase fw-bold mb-4 pb-3">Contact me</h6>
+          </Col>
+          <Col
+            xs={12}
+            md={8}
+            className="d-flex align-items-center mb-md-0 mb-4 "
+          >
+            <p className="mb-1">
+              <FontAwesomeIcon icon={faHome} className="me-3" /> 28201 Bremen,
+              Germany
+            </p>
+            <p className="mb-1">
+              <FontAwesomeIcon icon={faEnvelope} className="me-3" />
+              loretana.iacobelli@gmail.com
+            </p>
+            <p className="mb-0">
+              <FontAwesomeIcon icon={faPhone} className="me-3" /> + 49 1575 1915
+              364
+            </p>
+          </Col>
+          <Col xs={12} md={2} className="mt-2">
+            <small style={{ fontStyle: "italic" }}>
+              Loretana Iacobelli &copy; {new Date().getFullYear()}
+            </small>
+          </Col>
+        </Row>
+      </Container>
     </footer>
   );
 }
