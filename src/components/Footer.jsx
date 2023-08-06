@@ -5,18 +5,19 @@ import {
   faFacebookF,
   faGoogle,
   faInstagram,
-  faLinkedin,
-  faGithub,
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <footer className="mt-5 footer text-center text-lg-start bg-white text-muted">
+    <footer className="mx-auto px-0 mt-5 footer text-center text-md-start text-muted">
       {/* Section: Social media */}
-      <section className="social text-dark d-flex justify-content-center justify-content-lg-space-evenly p-4 border-bottom">
-        <div className="me-5 d-none d-lg-block">
+      <section
+        className="social 
+       text-dark d-flex justify-content-center justify-content-md-space-evenly p-4"
+      >
+        <div className="me-5 d-none d-md-block">
           <span>Collegati con noi sui social network:</span>
         </div>
 
@@ -24,18 +25,19 @@ function Footer() {
           <Link
             to="https://www.facebook.com/loretana.iacobelli"
             target="_blank"
-            className="me-4 text-reset"
+            className=" text-reset"
           >
             <FontAwesomeIcon icon={faFacebookF} />
           </Link>
           <Link
             to="mailto:loretana.iacobelli@gmail.com"
             target="_blank"
-            className="me-4 text-reset"
+            className="mx-4
+             text-reset"
           >
             <FontAwesomeIcon icon={faGoogle} />
           </Link>
-          <Link to="#" target="_blank" className="me-4 text-reset">
+          <Link to="#" target="_blank" className=" text-reset">
             <FontAwesomeIcon icon={faInstagram} />
           </Link>
         </div>
@@ -44,16 +46,12 @@ function Footer() {
 
       {/* Section: Links */}
 
-      <Container className="py-3">
+      <Container className="py-3 mx-auto bordo">
         <Row className="d-flex flex-md-row flex-column justify-md-content-between text-center text-md-start">
-          <Col xs={12} md={2} className="my-auto">
+          <Col xs={12} md={3} className="my-auto text-center">
             <h6 className="text-uppercase fw-bold mb-4 pb-3">Contact me</h6>
           </Col>
-          <Col
-            xs={12}
-            md={8}
-            className="d-flex align-items-center mb-md-0 mb-4 "
-          >
+          <Col xs={12} md={6} className="mb-md-0 mb-4">
             <p className="mb-1">
               <FontAwesomeIcon icon={faHome} className="me-3" /> 28201 Bremen,
               Germany
@@ -67,7 +65,7 @@ function Footer() {
               364
             </p>
           </Col>
-          <Col xs={12} md={2} className="mt-2">
+          <Col xs={12} md={3} className="mt-2">
             <small style={{ fontStyle: "italic" }}>
               Loretana Iacobelli &copy; {new Date().getFullYear()}
             </small>

@@ -102,3 +102,12 @@ Button:hover {
   background-color: #0000002b;
   border-radius: 100%;
 }
+
+footer {
+  background-color: #d3eef5 !important;
+  padding-left: 3em;
+}
+
+.bordo {
+  border-top: 1px solid rgba(0, 0, 0, 0.244);
+}
