@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+# Sito vetrina d'arte di Loretana
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+Benvenuto nel repository del Sito Web d'arte commissionato dell'artista pugliese Loretana Iacobelli.
+Questa applicazione fullstack è stata sviluppata con l'obiettivo di permettere agli utenti di selezionare quadri da diverse collezioni, visualizzarne i dettagli, aggiungerli ai preferiti e gestire la propria lista dei preferiti.
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Caratteristiche Principali
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* Sfoglia una varietà di collezioni di quadri e seleziona quelli che ti interessano.
+* Visualizza i dettagli di ciascun quadro, inclusi titolo, artista, anno e descrizione.
+* Aggiungi quadri alla tua lista dei preferiti per tenerli d'occhio.
+* Rimuovi quadri dalla tua lista dei preferiti se hai cambiato idea.
+* Accedi al tuo account per visualizzare e gestire la tua lista dei preferiti in modo sicuro.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Tecnologie Utilizzate
 
-### `npm run build`
+### Frontend:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+*  JavaScript
+* Redux per la gestione dello stato
+* React-Bootstrap per un'interfaccia utente responsive
+* CSS per lo stile e il layout
+* Email.js per l'invio di email
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Backend:
+  
+* Java
+* Spring Boot per la creazione di API RESTful
+* JSON Web Token (JWT) per l'autenticazione e l'autorizzazione
+* Database (ad esempio, PostgreSQL) per la persistenza dei dati utente e dei quadri preferiti
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Requisiti di Sistema
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Assicurati di avere le seguenti tecnologie installate sulla tua macchina locale:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+* Node.js e npm per il frontend
+* Java per il backend
+* Un database relazionale (ad esempio, PostgreSQL) per la persistenza dei dati
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+  
+## Guida all'Installazione
 
-## Learn More
+### Clona il repository:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+* git clone https://github.com/369-Palma/e.commerceArte.git
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Passa alla directory del frontend:
 
-### Code Splitting
+* cd frontend
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Installa le dipendenze:
 
-### Analyzing the Bundle Size
+* npm install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Avvia il frontend:
 
-### Making a Progressive Web App
+* npm start
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Passa alla directory del backend:
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* cd backend
+Importa il progetto nella tua IDE preferita (ad esempio, Eclipse o IntelliJ) e avvialo utilizzando il server di sviluppo integrato.
