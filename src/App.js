@@ -20,8 +20,37 @@ import Collections from "./components/Collections";
 import UpdateBlog from "./components/UpdateBlog";
 import UpdateProduct from "./components/UpdateProduct";
 import NewProduct from "./components/NewProduct";
+import React, { useState, useEffect } from "react";
+import { Col, Row, Container, Button } from "react-bootstrap";
+import { FaArrowUp, FaArrowDown } from "react-icons/fa";
 
 function App() {
+  const [showButtons, setShowButtons] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setShowButtons(true);
+      } else {
+        setShowButtons(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const scrollToBottom = () => {
+    window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+  };
+
   return (
     <BrowserRouter>
       <CustomNav />
@@ -48,6 +77,19 @@ function App() {
         <Route path="/editProduct/:prodId" element={<UpdateProduct />} />
         <Route path="/addProduct" element={<NewProduct />} />
       </Routes>
+      <Container className="desktop-only">
+        <Row className="justify-content-center">
+          <Col className="scroll-buttons">
+            <Button className="scroll-button" onClick={scrollToTop}>
+              <FaArrowUp />
+            </Button>
+            <Button className="scroll-button" onClick={scrollToBottom}>
+              <FaArrowDown />
+            </Button>
+          </Col>
+        </Row>
+      </Container>
+
       <Footer />
     </BrowserRouter>
   );

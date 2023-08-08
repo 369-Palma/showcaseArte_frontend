@@ -123,12 +123,12 @@ const Detail = (props) => {
                     Size: {""} {prodObj?.length} x {prodObj?.width} cm
                   </p>
                 </Col>
-                <Col xs={12} md={6}>
+                {/*  <Col xs={12} md={6}>
                   <p>
                     {" "}
                     Available: {""} {prodObj?.available}
                   </p>
-                </Col>
+                </Col> */}
                 <Col xs={12} md={6}>
                   <p> {prodObj?.description} </p>
                 </Col>

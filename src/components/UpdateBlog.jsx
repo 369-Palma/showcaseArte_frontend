@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Form, Button, Row, Col } from "react-bootstrap";
 import { useDispatch } from "react-redux";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { updateSingleNewsAction } from "../redux/actions/index";
 
 const UpdateBlog = () => {
@@ -9,12 +9,19 @@ const UpdateBlog = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const location = useLocation();
+
+  const title = location.state.title;
+  const dove = location.state.dove;
+  const quando = location.state.quando;
+  const description = location.state.description;
+
   const [updatedNews, setUpdatedNews] = useState({
     id: postId,
-    title: "",
-    dove: "",
-    quando: null,
-    description: "",
+    title: title,
+    dove: dove,
+    quando: quando,
+    description: description,
     publicationDate: new Date().toISOString().slice(0, 10),
   });
 

@@ -55,6 +55,42 @@ Button:hover {
   background-color: #d3eef5 !important;
   border: 1px solid black !important;
 }
+
+.desktop-only {
+  display: none;
+}
+
+@media (min-width: 755px) {
+  .desktop-only {
+    display: block;
+  }
+}
+.scroll-buttons {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  z-index: 9999;
+}
+
+.scroll-button {
+  background-color: whitesmoke;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 30px;
+  cursor: pointer;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.scroll-button i {
+  font-size: 20px;
+  color: #333333;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -101,4 +137,24 @@ Button:hover {
   color: #d3eef5;
   background-color: #0000002b;
   border-radius: 100%;
+}
+
+footer {
+  padding-left: 3em;
+  border-top: 2px solid #d3eef5;
+}
+
+.bordo {
+  border-top: 2px solid #d3eef5;
+}
+
+.icona {
+  color: #a8d8e5;
+}
+.zoom {
+  color: black;
+}
+.zoom:hover {
+  transform: scale(1);
+  color: #a8d8e5;
 }
