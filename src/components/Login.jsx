@@ -5,6 +5,7 @@ import { setUsername, setPassword, logoutAction } from "../redux/actions";
 import MyFavs from "./MyFavs";
 import { useNavigate } from "react-router-dom";
 import "../styles/collection.css";
+import { scrollToTop } from "../redux/actions";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -83,6 +84,7 @@ const Login = () => {
     }
     if (success === true && username !== "lory") {
       navigate("/favourites");
+      scrollToTop();
     } else if (username === "lory") {
       navigate("/");
     }

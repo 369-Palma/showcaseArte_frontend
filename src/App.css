@@ -104,10 +104,21 @@ Button:hover {
 }
 
 footer {
-  background-color: #d3eef5 !important;
   padding-left: 3em;
+  border-top: 2px solid #d3eef5;
 }
 
 .bordo {
-  border-top: 1px solid rgba(0, 0, 0, 0.244);
+  border-top: 2px solid #d3eef5;
+}
+
+.icona {
+  color: #a8d8e5;
+}
+.zoom {
+  color: black;
+}
+.zoom:hover {
+  transform: scale(1);
+  color: #a8d8e5;
 }

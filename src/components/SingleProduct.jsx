@@ -11,7 +11,7 @@ import {
 import "../styles/collection.css";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
 import { HiOutlinePencilAlt } from "react-icons/hi";
-import "../styles/news.css";
+//import "../styles/news.css";
 
 const SingleProduct = (props) => {
   const navigate = useNavigate();
@@ -58,39 +58,38 @@ const SingleProduct = (props) => {
   return (
     <>
       <Container className="my-3">
-        <Row className="d-flex flex-column my-0">
-          <Col className="">
+        <Row className="d-flex flex-column ps-4 my-0">
+          <Col className="pe-5" id="singleImg">
             <img
-              className="imgCollection w-100 h-100"
-              id="singleImg"
+              className="w-100"
               variant="top"
               src={product?.img}
               alt={product?.title}
               onClick={() => handleImageClick(product.id)}
             />
           </Col>
-          <Row className="d-flex space-between mx-0 pt-4 ps-0">
-            <Col>
-              <p className="titoloQuadro">{product?.title}</p>
+          <Row className="d-flex space-between mx-0 pt-4 ps-0 flex-nowrap">
+            <Col xs={10} md={9}>
+              <p className="titoloQuadro ">{product?.title}</p>
             </Col>
             {username !== "lory" ? (
-              <Col className="d-flex justify-content-end pt-1">
+              <Col xs={2} md={2} className="d-flex pt-1 flex-end ">
                 {isFav ? (
                   <FaHeart
-                    className="w-25"
+                    className="w-50"
                     color="red"
                     onClick={handleFavClick}
                   />
                 ) : (
                   <FaRegHeart
-                    className="w-25"
+                    className="w-50"
                     color="red"
                     onClick={handleFavClick}
                   />
                 )}
               </Col>
             ) : (
-              <Col className="d-flex justify-content-end pt-1">
+              <Col xs={2} md={2} className="d-flex pt-1">
                 <HiOutlinePencilAlt
                   onClick={() =>
                     handleEditClick(product.id, product.collection)

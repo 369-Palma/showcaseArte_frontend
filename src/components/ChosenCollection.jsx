@@ -53,7 +53,12 @@ const ChosenCollection = () => {
             </>
           )}
           {products?.map((product) => (
-            <Col className="stileTesto" xs={12} md={6} key={product?.id}>
+            <Col
+              className="stileTesto mx-auto"
+              xs={12}
+              md={6}
+              key={product?.id}
+            >
               <SingleProduct product={product} />
             </Col>
           ))}

@@ -27,22 +27,22 @@ const Collections = (props) => {
   const collectionsArray = [
     {
       collection: "Seascapes",
-      product: findProductByTitle("Vid u' mar quant j'è béll"),
+      product: findProductByTitle("Carribean morning"),
     },
 
     {
       collection: "Oysters",
-      product: findProductByTitle("Oyster Artistry"),
+      product: findProductByTitle("Oyster - light blue background"),
     },
 
     {
       collection: "Flowers",
-      product: findProductByTitle("Spring breeze"),
+      product: findProductByTitle("Flower carnival - sunflower & iris"),
     },
 
     {
-      collection: "Custom",
-      product: findProductByTitle("Mediterranean landscape"),
+      collection: "Commissioned",
+      product: findProductByTitle("Commissioned by Daniel"),
     },
   ];
 

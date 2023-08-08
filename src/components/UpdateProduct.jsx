@@ -33,19 +33,6 @@ const UpdateProduct = () => {
     available: available,
   });
 
-  /* const [updatedProd, setUpdatedProd] = useState({
-    id: prodId,
-    title: "",
-    price: undefined,
-    length: undefined,
-    width: undefined,
-    description: "",
-    collection: undefined,
-    img: decodedImg,
-    client: null,
-    available: true,
-  }); */
-
   const handleSubmit = async (e) => {
     console.log("updatedNews:", updatedProd);
     e.preventDefault();

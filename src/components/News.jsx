@@ -18,8 +18,15 @@ const News = () => {
   }, [dispatch]);
 
   const handleEditClick = (postId) => {
-    console.log("Edit icon clicked for post ID:", postId);
-    navigate(`/formBlog/${postId}`);
+    // console.log("Edit icon clicked for post ID:", postId);
+    navigate(`/formBlog/${postId}`, {
+      state: {
+        title: news.title,
+        quando: news.quando,
+        dove: news.dove,
+        description: news.description,
+      },
+    });
   };
 
   return (
@@ -37,13 +44,13 @@ const News = () => {
       )}
       {news?.map((news) => (
         <Card.Body key={news.id}>
+          <p className="smalltext pe-3 d-flex">{news.publicationDate}</p>
           <Card.Title className="mb-4">{news.title}</Card.Title>
           <Card.Text className="d-flex flex-column justify-content-space-around">
             <p> {news.description} </p>
-            <p>{news.dove}</p>
-            <p>{news.quando}</p>
+            <p> When: {news.quando}</p>
+            <p>Where: {news.dove}</p>
           </Card.Text>
-          <p className="smalltext pe-3">{news.publicationDate}</p>
         </Card.Body>
       ))}
     </Card>

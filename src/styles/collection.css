@@ -1,11 +1,25 @@
 .titoloQuadro {
   width: fit-content;
 }
-.imgCollection {
+/* #imgCollection {
   max-width: 528px;
   max-height: 515px;
+} */
+
+.imgCollection {
+  width: 400px;
+  height: 350px;
 }
 
 .stileTesto {
   font-family: "Comfortaa", cursive;
+}
+
+#singleImg {
+  /*   max-width: 528px;
+  max-height: 515px; */
+  /*   width: 400px;
+  height: 40px; */
+  width: 528px;
+  height: 515px;
 }
