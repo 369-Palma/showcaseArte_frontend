@@ -13,7 +13,7 @@ Questa applicazione fullstack è stata sviluppata con l'obiettivo di permettere 
 * Aggiungi quadri alla tua lista dei preferiti per tenerli d'occhio.
 * Rimuovi quadri dalla tua lista dei preferiti se hai cambiato idea.
 * Accedi al tuo account per visualizzare e gestire la tua lista dei preferiti in modo sicuro.
-* Contatta l'artista tramite uno di questi metodi: form, gmail, facebook.
+* Contatta l'artista tramite: form, gmail, facebook.
 
 
 ## Tecnologie Utilizzate
