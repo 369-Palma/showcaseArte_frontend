@@ -13,36 +13,47 @@ const MyFavs = () => {
   return (
     <>
       <h2 className="mt-4"> My favourites </h2>
-      <Container className="mb-5">
+      <Container className="mb-5 justify-content-center align-items-center mx-auto my-4">
         <Row>
           {favourites.length === 0 ? (
             <p> Not favourites yet</p>
           ) : (
-            <Col xs={12} md={6} className="text-start">
-              <ul
-                style={{ listStyle: "none" }}
-                className="d-flex flex-column flex-xs-column flex-md-column"
-              >
-                {favourites.map((product, i) => (
-                  <li key={i} className="my-4 d-flex flex-row me-5 w-100">
-                    <FaTrash
-                      color="red"
-                      onClick={() => {
-                        dispatch(removeFromFavAction(i));
-                      }}
-                    />
-                    <img
-                      className="imgSmall"
-                      src={product?.img}
-                      alt={product?.id}
-                    />
-                    <div className="d-flex flex-column ">
-                      <p className="titolo">{product?.title}</p>
-                      <p className="mini">{product?.price} €</p>
-                    </div>
-                  </li>
-                ))}
-              </ul>
+            <Col
+              xs={12}
+              md={6}
+              className="text-start justify-content-center mx-auto"
+            >
+              <Row className="d-flex justify-content-center align-items-center mx-auto">
+                <ul
+                  style={{ listStyle: "none" }}
+                  className="w-100 ps-0 d-flex flex-column flex-xs-column flex-md-column"
+                >
+                  {favourites.map((product, i) => (
+                    <li key={i} className="my-4 d-flex flex-row me-5 ">
+                      <Col xs={1}>
+                        <FaTrash
+                          className="w-100"
+                          color="red"
+                          onClick={() => {
+                            dispatch(removeFromFavAction(i));
+                          }}
+                        />
+                      </Col>
+                      <Col className="w-100">
+                        <img
+                          className="imgSmall"
+                          src={product?.img}
+                          alt={product?.id}
+                        />
+                      </Col>
+                      <Col>
+                        <p className="titolo">{product?.title}</p>
+                        <p className="mini">{product?.price} €</p>
+                      </Col>
+                    </li>
+                  ))}
+                </ul>
+              </Row>
             </Col>
           )}
         </Row>
@@ -59,11 +70,8 @@ const MyFavs = () => {
       </Container>
 
       <Row className="mx-auto justify-content-center">
-        <Col className="d-flex justify-content-evenly">
-          <Alert
-            md={9}
-            className="bgColor text-md-center mx-auto d-flex w-100 justify-content-center"
-          >
+        <Col className="d-flex mx-auto px-0 ">
+          <Alert className="bgColor justify-content-center text-md-center mx-auto d-flex w-100 ">
             If you're interested in purchasing or you want more info on your
             favorite works, <br />
             or if you'd like to commission a painting, <br />

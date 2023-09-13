@@ -10,7 +10,7 @@ const Carosello = () => {
   return (
     <Container>
       <Row>
-        <Col xs={12} md={11} className="w-100">
+        <Col xs={12} md={11} className="">
           <Carousel className="my-5 text-center mx-auto">
             {products.map((product) => (
               <Carousel.Item key={product.id} interval={3000}>

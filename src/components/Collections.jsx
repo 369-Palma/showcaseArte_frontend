@@ -49,8 +49,8 @@ const Collections = (props) => {
   console.log(collectionsArray);
 
   return (
-    <Container className="mx-auto my-auto d-flex flex-column">
-      <Row className="my-4">
+    <Container className="p-0 mx-auto my-auto d-flex flex-column">
+      <Row className="my-4 mx-auto">
         <h2 className="mb-5">Collections</h2>
         {collectionsArray.map((collection) => (
           <Col key={collection.collection} xs={12} md={6} className="my-3">
