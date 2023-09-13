@@ -8,3 +8,19 @@
 .bgColor {
   background-color: #d3eef5 !important;
 }
+
+.bottoneMyFav {
+  width: fit-content;
+}
+
+.rigaBottoni {
+  height: fit-content;
+}
+
+.titolo {
+  font-style: italic;
+}
+
+.mini {
+  font-size: small;
+}

@@ -36,9 +36,9 @@ const MyFavs = () => {
                       src={product?.img}
                       alt={product?.id}
                     />
-                    <div className="d-flex flex-column">
-                      <p>{product?.title}</p>
-                      <p className="mx-5">{product?.price} €</p>
+                    <div className="d-flex flex-column ">
+                      <p className="titolo">{product?.title}</p>
+                      <p className="mini">{product?.price} €</p>
                     </div>
                   </li>
                 ))}
@@ -58,21 +58,29 @@ const MyFavs = () => {
         </Row>
       </Container>
 
-      <Row className="mx-auto">
-        <Col>
-          <Alert md={9} className="bgColor text-center mx-3">
-            If you're interest in purchasing some paintings / you want to check
-            availability of your favourite paintings / commission a painting,
-            <br /> contact the artist.
+      <Row className="mx-auto justify-content-center">
+        <Col className="d-flex justify-content-evenly">
+          <Alert
+            md={9}
+            className="bgColor text-md-center mx-auto d-flex w-100 justify-content-center"
+          >
+            If you're interested in purchasing or you want more info on your
+            favorite works, <br />
+            or if you'd like to commission a painting, <br />
+            please contact the artist.
           </Alert>
         </Col>
         <Row>
-          <Col className="mx-5 d-flex justify-content-evenly">
+          <Col className="mx-5 d-flex justify-content-evenly rigaBottoni">
             <Link to="/contacts">
-              <Button className="">Contact the artist</Button>
+              <Button className="bottoneMyFav h-100 m-2">
+                Contact the artist
+              </Button>
             </Link>
             <Link to="/">
-              <Button>Back to Collections</Button>
+              <Button className="bottoneMyFav h-100 m-2">
+                Back to Collections
+              </Button>
             </Link>
           </Col>
         </Row>
