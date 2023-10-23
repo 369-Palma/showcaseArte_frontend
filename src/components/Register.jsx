@@ -214,10 +214,10 @@ const Register = () => {
             </Form.Group>
 
             {/* EMAIL */}
-            <Form.Group className="mb-3" controlId="formBasicEmail">
+           <Form.Group className="mb-3" controlId="formBasicEmail">
   <Form.Label>
     Email:
-    <span className={validEmail && emailFocus ? "valid" : "d-none"}>
+    <span className={validEmail && emailFocus? "valid" : "d-none"}>
       <FontAwesomeIcon icon={faCheck} style={{ color: "#00ff00" }} />
     </span>
     <span className={!validEmail && emailFocus && email ? "invalid" : "d-none"}>
@@ -306,23 +306,19 @@ const Register = () => {
             {/* METCHED PASSWORD */}
 
             <Form.Group className="mb-3" controlId="form">
-              <Form.Label>
-                Confirm Password:
-                <span className={validMatch && matchPwd ? "valid" : "d-none"}>
-                  <FontAwesomeIcon
-                    icon={faCheck}
-                    style={{ color: "#00ff00" }}
-                  />
-                </span>
-                <span
-                  className={validMatch || !matchPwd ? "d-none" : "invalid"}
-                >
-                  <FontAwesomeIcon
-                    icon={faXmark}
-                    style={{ color: "#ff0000" }}
-                  />
-                </span>
-              </Form.Label>
+            <Form.Label>
+    Confirm Password:
+    <span className={validMatch && matchFocus ? "valid" : "d-none"}>
+      <FontAwesomeIcon icon={faCheck} style={{ color: "#00ff00" }} />
+    </span>
+    <span
+      className={
+        !validMatch && matchFocus && matchPwd ? "invalid" : "d-none"
+      }
+    >
+      <FontAwesomeIcon icon={faXmark} style={{ color: "#ff0000" }} />
+    </span>
+  </Form.Label>
               <Form.Control
                 type="password"
                 required
