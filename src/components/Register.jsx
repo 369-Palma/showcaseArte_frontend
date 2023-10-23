@@ -215,47 +215,37 @@ const Register = () => {
 
             {/* EMAIL */}
             <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>
-                Email:
-                <span className={validEmail ? "valid" : "d-none"}>
-                  <FontAwesomeIcon
-                    icon={faCheck}
-                    style={{ color: "#00ff00" }}
-                    className="ms-2"
-                  />
-                </span>
-                <span className={validEmail || !email ? "d-none" : "invalid"}>
-                  <FontAwesomeIcon
-                    icon={faXmark}
-                    style={{ color: "#ff0000" }}
-                  />
-                </span>
-              </Form.Label>
-              <Form.Control
-                type="email"
-                required
-                placeholder="Email"
-                ref={emailRef}
-                autoComplete="off"
-                onChange={(e) => handleEmailChange(e)}
-                aria-invalid={validEmail ? "false" : "true"}
-                aria-describedby="emailNote"
-                onFocus={() => setEmailFocus(true)}
-                onBlur={() => setEmailFocus(false)}
-              />
-              <p
-                id="emailNote"
-                className={
-                  emailFocus && email && !validEmail ? "instructions" : "d-none"
-                }
-              >
-                <FontAwesomeIcon
-                  icon={faCircleInfo}
-                  style={{ color: "#0dcaf0" }}
-                />
-                Insert a valid email address
-              </p>
-            </Form.Group>
+  <Form.Label>
+    Email:
+    <span className={validEmail && emailFocus ? "valid" : "d-none"}>
+      <FontAwesomeIcon icon={faCheck} style={{ color: "#00ff00" }} />
+    </span>
+    <span className={!validEmail && emailFocus && email ? "invalid" : "d-none"}>
+      <FontAwesomeIcon icon={faXmark} style={{ color: "#ff0000" }} />
+    </span>
+  </Form.Label>
+  <Form.Control
+    type="email"
+    required
+    placeholder="Email"
+    ref={emailRef}
+    autoComplete="off"
+    onChange={(e) => handleEmailChange(e)}
+    aria-invalid={validEmail ? "false" : "true"}
+    aria-describedby="emailNote"
+    onFocus={() => setEmailFocus(true)}
+    onBlur={() => setEmailFocus(false)}
+  />
+  <p
+    id="emailNote"
+    className={
+      emailFocus && email && !validEmail ? "instructions" : "d-none"
+    }
+  >
+    <FontAwesomeIcon icon={faCircleInfo} style={{ color: "#0dcaf0" }} />
+    Insert a valid email address
+  </p>
+</Form.Group>
 
             {/* PASSWORD */}
             <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -289,7 +279,7 @@ const Register = () => {
                   handlePasswordChange(e);
                 }}
                 aria-invalid={validPassword ? "false" : "true"}
-                aria-describedby="passwordnote" //per fornire ulteriori indicazioni all'utente
+                aria-describedby="passwordnote" 
                 onFocus={() => setPasswordFocus(true)}
                 onBlur={() => setPasswordFocus(false)}
               />
