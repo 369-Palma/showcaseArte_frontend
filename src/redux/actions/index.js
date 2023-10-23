@@ -301,10 +301,10 @@ export const getByIdAction = (id) => {
       let resp = await fetch(baseline + "/id/" + id);
       if (resp.ok) {
         let fetchedProduct = await resp.json();
-        console.log(fetchedProduct); // Controlla che il prodotto sia ricevuto correttamente
+        console.log(fetchedProduct); 
         dispatch({
           type: GET_PRODUCT,
-          payload: fetchedProduct, // Assicurati che il payload sia l'oggetto del prodotto
+          payload: fetchedProduct, 
         });
       } else {
         dispatch({
